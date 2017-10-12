@@ -1,0 +1,987 @@
+<!doctype html>
+<html lang="en">
+<!--[if IE 9 ]>
+<html  lang="en" class="ie9">
+<![endif]-->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="UTF-8">
+    <title>服务端</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/generics.css">
+    <link rel="stylesheet" href="css/bstable/bootstrap-table.css">
+    <link rel="stylesheet" href="css/bstable/bootstrap-table-self.css">
+</head>
+<body>
+<header id="header" class="media">
+    <a href="" id="menu-toggle"></a>
+    <a class="logo pull-left" href="index.html">
+        <img src="images/logo.png" alt="logo">
+    </a>
+    <div class="media-body">
+        <div class="media" id="top-menu">
+            <div class="pull-left tm-icon">
+                <a data-drawer="messages" class="drawer-toggle" href="">
+                    <i class="sa-top-message"></i>
+                    <span>时间回溯</span>
+                </a>
+            </div>
+            <div class="pull-left tm-icon">
+                <a data-drawer="notifications" class="drawer-toggle" href="">
+                    <i class="sa-top-updates"></i>
+                    <span>帮助</span>
+                </a>
+            </div>
+            <div id="time" class="pull-right">
+                <span id="hours"></span>
+                :
+                <span id="min"></span>
+                :
+                <span id="sec"></span>
+            </div>
+            <div class="media-body">
+                <input type="text" class="main-search">
+            </div>
+        </div>
+    </div>
+</header>
+<div class="clearfix"></div>
+<section id="main" class="p-relative" role="main">
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <!-- Side Menu -->
+        <ul class="list-unstyled side-menu">
+            <li>
+                <a class="sa-side-home" href="index.html">
+                    <span class="menu-item">首页</span>
+                </a>
+            </li>
+           <!-- <li>
+                <a class="sa-side-slt" href="#">
+                    <span class="menu-item">驾驶舱跳转</span>
+                </a>
+            </li>
+            <li>
+                <a class="sa-side-network" href="#">
+                    <span class="menu-item">网络</span>
+                </a>
+            </li>
+            <li>
+                <a class="sa-side-ip" href="#">
+                    <span class="menu-item">主机</span>
+                </a>
+            </li>
+            <li>
+                <a class="sa-side-custom" href="#">
+                    <span class="menu-item">自定义应用</span>
+                </a>
+            </li>
+            <li>
+                <a class="sa-side-web" href="#">
+                    <span class="menu-item">WEB服务</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a class="sa-side-db" href="#">
+                    <span class="menu-item">数据库服务</span>
+                </a>
+            </li>
+            <li>
+                <a class="sa-side-tuli" href="#">
+                    <span class="menu-item">绘图</span>
+                </a>
+            </li>
+            <li>
+                <a class="sa-side-save" href="#">
+                    <span class="menu-item">保存</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a class="sa-side-delete" href="#">
+                    <span class="menu-item">删除</span>
+                </a>
+            </li>
+            <li>
+                <a class="sa-side-pic" href="#">
+                    <span class="menu-item">驾驶舱设置</span>
+                </a>
+            </li>-->
+        </ul>
+    </aside>
+    <!-- Content -->
+    <section id="content" class="container">
+        <!-- Messages Drawer时间回溯 -->
+        <div id="messages" class="tile drawer animated">
+            <div class="listview narrow">
+                <div class="media">
+                    <a href="">时间回溯</a>
+                    <span class="drawer-close">&times;</span>
+                </div>
+                <div class="overflow" style="height: 254px">
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Nadin Jackson - 2 Hours ago</small><br>
+                            <a class="t-overflow" href="">Mauris consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">David Villa - 5 Hours ago</small><br>
+                            <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/3.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Harris worgon - On 15/12/2013</small><br>
+                            <a class="t-overflow" href="">Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/4.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Mitch Bradberry - On 14/12/2013</small><br>
+                            <a class="t-overflow" href="">Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Nadin Jackson - On 15/12/2013</small><br>
+                            <a class="t-overflow" href="">Ipsum wintoo consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">David Villa - On 16/12/2013</small><br>
+                            <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/3.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Harris worgon - On 17/12/2013</small><br>
+                            <a class="t-overflow" href="">Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/4.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Mitch Bradberry - On 18/12/2013</small><br>
+                            <a class="t-overflow" href="">Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/5.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Wendy Mitchell - On 19/12/2013</small><br>
+                            <a class="t-overflow" href="">Integer a eros dapibus, vehicula quam accumsan, tincidunt purus</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media text-center whiter l-100">
+                    <a href=""><small>VIEW ALL</small></a>
+                </div>
+            </div>
+        </div>
+        <!-- Notification Drawer帮助 -->
+        <div id="notifications" class="tile drawer animated">
+            <div class="listview narrow">
+                <div class="media">
+                    <a href="">帮助</a>
+                    <span class="drawer-close">&times;</span>
+                </div>
+                <div class="overflow" style="height: 254px">
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Nadin Jackson - 2 Hours ago</small><br>
+                            <a class="t-overflow" href="">Mauris consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">David Villa - 5 Hours ago</small><br>
+                            <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/3.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Harris worgon - On 15/12/2013</small><br>
+                            <a class="t-overflow" href="">Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/4.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Mitch Bradberry - On 14/12/2013</small><br>
+                            <a class="t-overflow" href="">Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Nadin Jackson - On 15/12/2013</small><br>
+                            <a class="t-overflow" href="">Ipsum wintoo consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">David Villa - On 16/12/2013</small><br>
+                            <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media text-center whiter l-100">
+                    <a href=""><small>VIEW ALL</small></a>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb -->
+        <div class="block-area">
+   <!--         <h3 class="block-title">账号管理</h3>-->
+            <div class="table-responsive overflow">
+                <div id="btnAddRemove">
+                  <!--  <button class="btn btn-default" id="addtable4Row">
+                        <span>新增</span>
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>-->
+                    <button class="btn btn-default" id="addtable4Row" style="margin-left: 10px;margin-right: 10px;">
+                        <!--       <span>新增</span>-->
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                    <button class="btn btn-default" id="deltable4Row" style="margin-right: 10px;">
+                        <!--      <span>删除</span>-->
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                    <button class="btn btn-default" id="changetable4Row" style="margin-right: 10px;">
+                        <!--              <span>修改</span>-->
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <div class="modal fade in" id="addtableRow-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  data-backdrop="static">
+                        <div class="modal-dialog">
+                            <div class="modal-content" style="background: #000;">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title">
+                                        增加行
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-horizontal">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                    </button>
+                                    <button type="button" class="btn btn-primary footer-btn" id="btn-addtableRow">
+                                        提交
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade in" id="changetableRow-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  data-backdrop="static">
+                        <div class="modal-dialog">
+                            <div class="modal-content" style="background: #000;">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title">
+                                        更改行内容
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-horizontal">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                    </button>
+                                    <button type="button" class="btn btn-primary footer-btn" id="btn-changetableRow">
+                                        提交
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade in" id="Confirm-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  data-backdrop="static">
+                        <div class="modal-dialog">
+                            <div class="modal-content" style="background: #000;">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title">
+                                        操作
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    确定删除此行吗？
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                    </button>
+                                    <button type="button" class="btn btn-primary footer-btn" data-dismiss="modal" id="btn-ConfirmdelRow">
+                                        提交
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table id="table5">
+                </table>
+            </div>
+        </div>
+    </section>
+    <!-- Older IE Message -->
+    <!--[if lt IE 9]>
+    <div class="ie-block">
+        <h1 class="Ops">抱歉！</h1>
+        <p>您正在使用一个过时的Internet Explorer版本，升级到以下任何Web浏览器，以便访问该网站的最大功能。 </p>
+        <ul class="browsers">
+            <li>
+                <a href="http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html">
+                    <img src="img/browsers/chrome.png" alt="">
+                    <div>Google Chrome</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.firefox.com.cn/">
+                    <img src="img/browsers/firefox.png" alt="">
+                    <div>Mozilla Firefox</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.oupeng.com/download">
+                    <img src="img/browsers/opera.png" alt="">
+                    <div>Opera</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.apple.com/cn/safari/">
+                    <img src="img/browsers/safari.png" alt="">
+                    <div>Safari</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads">
+                    <img src="img/browsers/ie.png" alt="">
+                    <div>Internet Explorer(New)</div>
+                </a>
+            </li>
+        </ul>
+        <p>升级你的浏览器更安全和更快的网络体验。 <br/>感谢你的支持...</p>
+    </div>
+    <![endif]-->
+</section>
+</body>
+</html>
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script> <!-- jQuery Library -->
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Bootstrap-table -->
+<script src="js/bstable/bootstrap-table.js"></script>
+<script src="js/bstable/bootstrap-table-zh-CN.js"></script>
+<script src="js/select.min.js"></script>
+<script src="js/chosen.min.js"></script>
+<script src="js/functions.js"></script>
+<script src="js/changebgsave.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/bstable/handlebsTable.js"></script>
+<script>
+    $(function(){
+        function temp1(){
+            var field = ["name","displayIp"],
+                    titleText = ["业务名称","服务端IP端口"];
+            $("#table5").bootstrapTable({
+                toggle:"table",
+                url:"/serverManagement/getAllServerSide.do",
+                toolbar:"#btnAddRemove",
+                height:"360",
+                pagination:true,
+                showColumns:true,
+                columns:[
+                    {
+                        field: 'name',
+                        title:"业务名称",
+                        sortable: true
+                    },
+                    {
+                        field:"displayIp",
+                        title:"服务端IP端口",
+                        sortable: true
+                    },
+                    {
+                        title:"操作",
+                        events: {
+                            'click .remove': function (e, value, row, index) {
+                                $("#Confirm-modal").modal("show");
+                                $("#btn-ConfirmdelRow").one("click",function(){
+                                    $.ajax({
+                                        url:"/serverManagement/deleteServerSide.do",
+                                        type:"post",
+                                        data:{
+                                            id:row.id
+                                        },
+                                        dataType:"text",
+                                        success:function(data){
+                                            if(data=="success"){
+                                                $("#table5").bootstrapTable('remove', {
+                                                    field: 'id',
+                                                    values: [row.id]
+                                                });
+                                            }else {
+                                                alert("删除失败，请稍后再试");
+                                            }
+                                        }
+                                    });
+                                });
+                            },
+                            'click .edit':function(e, value, index,row){
+                                $("#changetableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").html("");
+                                var InputVal = [];
+                                for(var j=0;j<field.length;j++){
+                                    InputVal.push(index[field[j]]);
+                                }
+                                for(var i=0;i<titleText.length;i++){
+                                    var formGroup = $('<div class="form-group">'+
+                                            '<div class="col-md-8">'+
+                                            '<input type="text" class="form-control input-sm m-t-15 addtableRowInput"  value="'+InputVal[i]+'">'+
+                                            '</div>'+
+                                            '</div>');
+                                    var label = $('<lable class="col-md-3 control-label">'+
+                                            titleText[i]+
+                                            ':</lable>');
+                                    $(formGroup).prepend(label);
+                                    $("#changetableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").append(formGroup);
+                                }
+                                $('#changetableRow-modal').modal('show');
+                                $("#btn-changetableRow").one("click",function(){
+                                    var serverIp = $("#changetableRow-modal .addtableRowInput:eq(1)").val(),
+                                            strName = $("#changetableRow-modal .addtableRowInput:eq(0)").val();
+                                    if(busName(strName)&&verification(serverIp)){
+                                        $('#changetableRow-modal').modal('hide');
+                                        $.ajax({
+                                            url:"/serverManagement/updateServerSide.do",
+                                            type:"post",
+                                            data:{
+                                                id:index.id,
+                                                name:strName,
+                                                displayIp:serverIp
+                                            },
+                                            dataType:"text",
+                                            success:function(data){
+                                                if(data=="success"){
+                                                    $("#table5").bootstrapTable('updateRow', {
+                                                        index:row,
+                                                        row:{
+                                                            id:index.id,
+                                                            name:strName,
+                                                            displayIp:serverIp
+                                                        }
+                                                    });
+                                                }else {
+                                                    alert("后端验证不通过，修改失败，请稍后再试");
+                                                }
+                                            }
+                                        });
+                                    }else {
+                                        alert("业务名称不能超过32个字符且不能为空，‘服务端IP端口’不能为空且必须合法多个IP之间用英文的逗号隔开");
+                                    }
+                                });
+                            }
+                        },
+                        formatter: function(){
+                            return [
+                                '<img src="images/edit.png"/ class="cursor edit"/>' +
+                                '<img src="images/false.png" style="padding-left: 10%;" class="cursor imgDel remove"/>'
+                            ].join('');
+                        }
+                    }
+                ]
+            });
+            /**************增加行******************************/
+            $("#addtable4Row").click(function(){
+                $("#addtableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").html("");
+                var length = titleText.length;
+                for(var i=0;i<length;i++){
+                    var formGroup = $('<div class="form-group">'+
+                            '<div class="col-md-8">'+
+                            '<input type="text" class="form-control input-sm m-t-15 addtableRowInput">'+
+                            '</div>'+
+                            '</div>');
+                    var label = $('<lable class="col-md-3 control-label">'+
+                            titleText[i]+
+                            ':</lable>');
+                    $(formGroup).prepend(label);
+                    $("#addtableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").append(formGroup);
+                }
+                $("#addtableRow-modal").modal("show");
+            });
+            $("#btn-addtableRow").click(function(){
+                var serverIpVal = $("#addtableRow-modal .addtableRowInput:eq(1)").val(),
+                        strName = $("#addtableRow-modal .addtableRowInput:eq(0)").val();
+                if(busName(strName)&&verification(serverIpVal)){
+                    $("#addtableRow-modal").modal("hide");
+                    $.ajax({
+                        url:" /serverManagement/addServerSide.do",
+                        type:"post",
+                        data:{
+                            name:strName,
+                            displayIp:serverIpVal
+                        },
+                        dataType:"text",
+                        success:function(data){
+                            if(data=="success"){
+                                $.ajax({
+                                    url:"/serverManagement/getAllServerSide.do",
+                                    type:"post",
+                                    data:"",
+                                    dataType:"json",
+                                    success:function(data){
+                                        $('#table5').bootstrapTable('load',data);
+                                    }
+                                });
+                            }else {
+                                alert("后端验证不通过，保存失败，请稍后再试");
+                            }
+                        }
+                    });
+                }else {
+                    alert("业务名称不能超过32个字符且不能为空，‘服务端IP端口’不能为空且必须合法多个IP之间用英文的逗号隔开");
+                }
+            });
+            function busName(str){
+                /*验证用户名 将一个汉字转换成两个字符*/
+                var totalCount = 0;
+                for (var i=0; i<str.length; i++){
+                    var c = str.charCodeAt(i);
+                    if ((c >= 0x0001 && c <= 0x007e) || (0xff60<=c && c<=0xff9f)){
+                        totalCount++;
+                    }else{
+                        totalCount+=2;
+                    }
+                }
+                if(totalCount){
+                    if(totalCount<32){
+                        return true;
+                    }else {
+                        return false;
+                    }
+                }else {
+                    return false;
+                }
+            }
+            function verification(serverIpVal){
+                var serverBoolan = true,
+                        serverIp = serverIpVal,
+                        regIp = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/;//验证IP的合法性
+                for(var i=0;i<serverIp.split(",").length;i++){
+                    var serIpChild = serverIp.split(",")[i];
+                    if(serIpChild.split(":").length-1){
+                        if(serIpChild.split("-").length>3){
+                            serverBoolan = false;
+                        }else {
+                            switch (serIpChild.split("-").length){
+                                case 1:
+                                    //192.168.1.1:80
+                                    if(!(regIp.test(serIpChild.split(":")[0])&&serIpChild.split(":")[1]<=65535)){
+                                        serverBoolan = false;
+                                    }
+                                    break;
+                                case 2:
+                                    if(serIpChild.split("-")[0].split(":").length-1){
+                                        //192.168.1.1:80-100
+                                        if(!(regIp.test(serIpChild.split("-")[0].split(":")[0])
+                                                &&serIpChild.split("-")[0].split(":")[1]<=65535
+                                                &&Number(serIpChild.split("-")[0].split(":")[1])<Number(serIpChild.split("-")[1])
+                                                &&serIpChild.split("-")[1]<=65535)
+                                        ){
+                                            serverBoolan = false;
+                                        }
+                                    }else {
+                                        //192.168.1.1-192.168.1.10:80
+                                        if(serIpChild.split("-")[1].split(":").length-1){
+                                            if(!(regIp.test(serIpChild.split("-")[0])&&regIp.test(serIpChild.split("-")[1].split(":")[0])&&serIpChild.split("-")[1].split(":")[1]<=65535)){
+                                                serverBoolan = false;
+                                            }
+                                        }else {
+                                            serverBoolan = false;
+                                        }
+                                    }
+                                    break;
+                                case 3:
+                                    //192.168.1.1-192.168.1.10:80-100
+                                    if(serIpChild.split("-")[1].split(":").length-1){
+                                        var IpLen3Bol = regIp.test(serIpChild.split("-")[0])
+                                                &&regIp.test(serIpChild.split("-")[1].split(":")[0])
+                                                &&serIpChild.split("-")[1].split(":")[1]<=65535
+                                                &&Number(serIpChild.split("-")[1].split(":")[1])<Number(serIpChild.split("-")[2])
+                                                &&serIpChild.split("-")[2]<=65535;
+                                        if(!IpLen3Bol){
+                                            serverBoolan = false;
+                                        }
+                                    }else {
+                                        serverBoolan = false;
+                                    }
+                                    break;
+                                default:
+                                    serverBoolan = false;
+                            }
+                        }
+                    }else {
+                        serverBoolan = false;
+                    }
+                }
+                return serverBoolan;
+            }
+        }
+
+        function temp2(){
+            var field = ["name","displayIp"],
+                    titleText = ["业务名称","服务端IP端口"];
+            $("#table5").bootstrapTable({
+                toggle:"table",
+                url:"/serverManagement/getAllServerSide.do",
+                toolbar:"#btnAddRemove",
+                pagination:true,
+                showColumns:true,
+                columns:[
+                    {
+                        field: 'name',
+                        title:"业务名称",
+                        sortable: true
+                    },
+                    {
+                        field: "displayIp",
+                        title: "服务端IP端口",
+                        sortable: true
+                    }
+                ],
+                onClickRow:function(e,row){
+                    $(".tabRowClickbg").removeClass("tabRowClickbg");
+                    $(row).addClass("tabRowClickbg");
+                }
+            });
+
+            /**************增加行******************************/
+            $("#addtable4Row").click(function(){
+                $("#addtableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").html("");
+                var length = titleText.length;
+                for(var i=0;i<length;i++){
+                    var formGroup = $('<div class="form-group">'+
+                            '<div class="col-md-8">'+
+                            '<input type="text" class="form-control input-sm m-t-15 addtableRowInput">'+
+                            '</div>'+
+                            '</div>');
+                    var label = $('<lable class="col-md-3 control-label">'+
+                            titleText[i]+
+                            ':</lable>');
+                    $(formGroup).prepend(label);
+                    $("#addtableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").append(formGroup);
+                }
+                $("#addtableRow-modal").modal("show");
+            });
+            $("#btn-addtableRow").click(function(){
+                var serverIpVal = $("#addtableRow-modal .addtableRowInput:eq(1)").val(),
+                        strName = $("#addtableRow-modal .addtableRowInput:eq(0)").val();
+                if(busName(strName)&&verification(serverIpVal)){
+                    $("#addtableRow-modal").modal("hide");
+                    $.ajax({
+                        url:" /serverManagement/addServerSide.do",
+                        type:"post",
+                        data:{
+                            name:strName,
+                            displayIp:serverIpVal
+                        },
+                        dataType:"text",
+                        success:function(data){
+                            if(data=="success"){
+                                $.ajax({
+                                    url:"/serverManagement/getAllServerSide.do",
+                                    type:"post",
+                                    data:"",
+                                    dataType:"json",
+                                    success:function(data){
+                                        $('#table5').bootstrapTable('load',data);
+                                    }
+                                });
+                            }else {
+                                alert("后端验证不通过，保存失败，请稍后再试");
+                            }
+                        }
+                    });
+                }else {
+                    alert("业务名称不能超过32个字符且不能为空，‘服务端IP端口’不能为空且必须合法多个IP之间用英文的逗号隔开");
+                }
+            });
+            function busName(str){
+                /*验证用户名 将一个汉字转换成两个字符*/
+                var totalCount = 0;
+                for (var i=0; i<str.length; i++){
+                    var c = str.charCodeAt(i);
+                    if ((c >= 0x0001 && c <= 0x007e) || (0xff60<=c && c<=0xff9f)){
+                        totalCount++;
+                    }else{
+                        totalCount+=2;
+                    }
+                }
+                if(totalCount){
+                    if(totalCount<32){
+                        return true;
+                    }else {
+                        return false;
+                    }
+                }else {
+                    return false;
+                }
+            }
+            function verification(serverIpVal){
+                var serverBoolan = true,
+                        serverIp = serverIpVal,
+                        regIp = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/;//验证IP的合法性
+                for(var i=0;i<serverIp.split(",").length;i++){
+                    var serIpChild = serverIp.split(",")[i];
+                    if(serIpChild.split(":").length-1){
+                        if(serIpChild.split("-").length>3){
+                            serverBoolan = false;
+                        }else {
+                            switch (serIpChild.split("-").length){
+                                case 1:
+                                    //192.168.1.1:80
+                                    if(!(regIp.test(serIpChild.split(":")[0])&&serIpChild.split(":")[1]<=65535)){
+                                        serverBoolan = false;
+                                    }
+                                    break;
+                                case 2:
+                                    if(serIpChild.split("-")[0].split(":").length-1){
+                                        //192.168.1.1:80-100
+                                        if(!(regIp.test(serIpChild.split("-")[0].split(":")[0])
+                                                &&serIpChild.split("-")[0].split(":")[1]<=65535
+                                                &&Number(serIpChild.split("-")[0].split(":")[1])<Number(serIpChild.split("-")[1])
+                                                &&serIpChild.split("-")[1]<=65535)
+                                        ){
+                                            serverBoolan = false;
+                                        }
+                                    }else {
+                                        //192.168.1.1-192.168.1.10:80
+                                        if(serIpChild.split("-")[1].split(":").length-1){
+                                            if(!(regIp.test(serIpChild.split("-")[0])&&regIp.test(serIpChild.split("-")[1].split(":")[0])&&serIpChild.split("-")[1].split(":")[1]<=65535)){
+                                                serverBoolan = false;
+                                            }
+                                        }else {
+                                            serverBoolan = false;
+                                        }
+                                    }
+                                    break;
+                                case 3:
+                                    //192.168.1.1-192.168.1.10:80-100
+                                    if(serIpChild.split("-")[1].split(":").length-1){
+                                        var IpLen3Bol = regIp.test(serIpChild.split("-")[0])
+                                                &&regIp.test(serIpChild.split("-")[1].split(":")[0])
+                                                &&serIpChild.split("-")[1].split(":")[1]<=65535
+                                                &&Number(serIpChild.split("-")[1].split(":")[1])<Number(serIpChild.split("-")[2])
+                                                &&serIpChild.split("-")[2]<=65535;
+                                        if(!IpLen3Bol){
+                                            serverBoolan = false;
+                                        }
+                                    }else {
+                                        serverBoolan = false;
+                                    }
+                                    break;
+                                default:
+                                    serverBoolan = false;
+                            }
+                        }
+                    }else {
+                        serverBoolan = false;
+                    }
+                }
+                return serverBoolan;
+            }
+            $("#deltable4Row").click(function(){
+                var selectRowId = $(".tabRowClickbg").attr("data-id");
+                if(selectRowId!=undefined){
+                    $("#Confirm-modal").modal("show");
+                    $("#btn-ConfirmdelRow").one("click",function(){
+                        $.ajax({
+                            url:"/serverManagement/deleteServerSide.do",
+                            type:"post",
+                            data:{
+                                id:selectRowId
+                            },
+                            dataType:"text",
+                            success:function(data){
+                                if(data=="success"){
+                                    $("#table5").bootstrapTable("refresh");
+                                }else {
+                                    alert("删除失败，请稍后再试");
+                                }
+                            }
+                        });
+                    })
+                }
+            });
+
+            $("#changetable4Row").click(function(){
+                var selectRowId = $(".tabRowClickbg").attr("data-id"),
+                        index = $(".tabRowClickbg").attr("data-index"),
+                        dataItem;
+                if(selectRowId!=undefined){
+                    $.ajax({
+                        url:"/serverManagement/getAllServerSide.do",
+                        async:false,
+                        type:"post",
+                        data:"",
+                        dataType:"json",
+                        success:function(cdata){
+                            cdata.forEach(function(item){
+                                if(item.id==selectRowId){
+                                    dataItem = item;
+                                }
+                            });
+                        }
+                    });
+
+                    $("#changetableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").html("");
+                    var InputVal = [];
+                    for(var j=0;j<field.length;j++){
+                        InputVal.push(dataItem[field[j]]);
+                    }
+                    for(var i=0;i<titleText.length;i++){
+                        var formGroup = $('<div class="form-group">'+
+                                '<div class="col-md-8">'+
+                                '<input type="text" class="form-control input-sm m-t-15 addtableRowInput"  value="'+InputVal[i]+'">'+
+                                '</div>'+
+                                '</div>');
+                        var label = $('<lable class="col-md-3 control-label">'+
+                                titleText[i]+
+                                ':</lable>');
+                        $(formGroup).prepend(label);
+                        $("#changetableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").append(formGroup);
+                    }
+                    $('#changetableRow-modal').modal('show');
+                    $("#btn-changetableRow").one("click",function(){
+                        var serverIp = $("#changetableRow-modal .addtableRowInput:eq(1)").val(),
+                                strName = $("#changetableRow-modal .addtableRowInput:eq(0)").val();
+                        if(busName(strName)&&verification(serverIp)){
+                            $('#changetableRow-modal').modal('hide');
+                            $.ajax({
+                                url:"/serverManagement/updateServerSide.do",
+                                type:"post",
+                                data:{
+                                    id:selectRowId,
+                                    name:strName,
+                                    displayIp:serverIp
+                                },
+                                dataType:"text",
+                                success:function(data){
+                                    if(data=="success"){
+                                        $("#table5").bootstrapTable('updateRow', {
+                                            index:index,
+                                            row:{
+                                                id:selectRowId,
+                                                name:strName,
+                                                displayIp:serverIp
+                                            }
+                                        });
+                                    }else {
+                                        alert("后端验证不通过，修改失败，请稍后再试");
+                                    }
+                                }
+                            });
+                        }else {
+                            alert("业务名称不能超过32个字符且不能为空，‘服务端IP端口’不能为空且必须合法多个IP之间用英文的逗号隔开");
+                        }
+                    });
+                }
+            });
+        }
+
+
+
+        /*-------------初始化表格-------------*/
+        $.JinibsTable("#table5","/serverManagement/getAllServerSide.do",
+                "#btnAddRemove",["name","displayIp"],
+                ["业务名称","服务端IP端口"]);
+        /*-------------添加行-------------*/
+        $("#addtable4Row").click(function(){
+            $.JaddbsModalRow(["业务名称","服务端IP端口"]);
+        });
+        $("#btn-addtableRow").click(function () {
+            $.JaddbsTableRow("#table5"," /serverManagement/addServerSide.do",
+            "/serverManagement/getAllServerSide.do","serverSide")
+        });
+        /*-------------修改行内容-------------*/
+        $("#changetable4Row").click(function(){
+            $.JeditRowModal("/serverManagement/getAllServerSide.do",
+                    ["name","displayIp"],
+                    ["业务名称","服务端IP端口"]);
+        });
+        $("#btn-changetableRow").click(function(){
+            $.JediTableRow("#table5",
+                    "/serverManagement/updateServerSide.do",
+            "serverSide");
+        });
+        /*-------------删除行-------------*/
+        $("#deltable4Row").click(function(){
+            if($(".tabRowClickbg").attr("data-id")!=undefined){
+                $("#Confirm-modal").modal("show");
+            }
+        });
+        $("#btn-ConfirmdelRow").click(function(){
+            $.JremovebsTableRow("#table5",
+                    "/serverManagement/deleteServerSide.do",
+            "serverSide")
+        });
+    });
+</script>
