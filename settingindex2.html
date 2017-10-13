@@ -1,0 +1,1394 @@
+<!doctype html>
+<html lang="en">
+<!--[if IE 9 ]>
+<html  lang="en" class="ie9">
+<![endif]-->
+<head>
+<meta name="viewport"	content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="format-detection" content="telephone=no">
+<meta charset="UTF-8">
+<title>用户管理</title>
+<!-- CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/icons.css">
+<link rel="stylesheet" href="css/generics.css">
+<link rel="stylesheet" href="css/bstable/bootstrap-table.css">
+<link rel="stylesheet" href="css/bstable/bootstrap-table-self.css">
+<style>
+   .check-list input[type="checkbox"]{
+      opacity: 1;
+      margin: 12px 0 0;
+   }
+   .check-list .checkbox label {
+      padding-left: 10px;
+   }
+</style>
+</head>
+<body>
+	<header id="header" class="media">
+		<a href="" id="menu-toggle"></a> <a class="logo pull-left"
+			href="index.html"> <img src="images/logo.png" alt="logo">
+		</a>
+		<div class="media-body">
+			<div class="media" id="top-menu">
+				<div class="pull-left tm-icon">
+					<a data-drawer="messages" class="drawer-toggle" href=""> <i
+						class="sa-top-message"></i> <span>时间回溯</span>
+					</a>
+				</div>
+				<div class="pull-left tm-icon">
+					<a data-drawer="notifications" class="drawer-toggle" href=""> <i
+						class="sa-top-updates"></i> <span>帮助</span>
+					</a>
+				</div>
+				<div id="time" class="pull-right">
+					<span id="hours"></span> : <span id="min"></span> : <span id="sec"></span>
+				</div>
+				<div class="media-body">
+					<input type="text" class="main-search">
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="clearfix"></div>
+	<section id="main" class="p-relative" role="main">
+		<!-- Sidebar -->
+		<aside id="sidebar">
+			<!-- Side Menu -->
+			<ul class="list-unstyled side-menu">
+				<li><a class="sa-side-home" href="index.html"> <span
+						class="menu-item">首页</span>
+				</a></li>
+				<li><a class="sa-side-typography" href="settingindex.html">
+						<span class="menu-item">系统管理</span>
+				</a></li>
+				<li class="active"><a class="sa-side-widget"
+					href="settingindex2.html"> <span class="menu-item">用户管理</span>
+				</a></li>
+				<li><a class="sa-side-table" href="settingindex3.html"> <span
+						class="menu-item">产品配置与管理</span>
+				</a></li>
+				<li><a class="sa-side-form" href="settingindex4.html"> <span
+						class="menu-item">常用工具管理</span>
+				</a></li>
+			</ul>
+		</aside>
+		<!-- Content -->
+		<section id="content" class="container">
+			<!-- Messages Drawer时间回溯 -->
+			<div id="messages" class="tile drawer animated">
+				<div class="listview narrow">
+					<div class="media">
+						<a href="">时间回溯</a> <span class="drawer-close">&times;</span>
+					</div>
+					<div class="overflow" style="height: 254px">
+						<div class="media">
+							<div class="pull-left">
+								<img width="40" src="img/profile-pics/1.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<small class="text-muted">Nadin Jackson - 2 Hours ago</small><br>
+								<a class="t-overflow" href="">Mauris consectetur urna nec
+									tempor adipiscing. Proin sit amet nisi ligula. Sed eu
+									adipiscing lectus</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img width="40" src="img/profile-pics/2.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<small class="text-muted">David Villa - 5 Hours ago</small><br>
+								<a class="t-overflow" href="">Suspendisse in purus ut nibh
+									placerat Cras pulvinar euismod nunc quis gravida. Suspendisse
+									pharetra</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img width="40" src="img/profile-pics/3.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<small class="text-muted">Harris worgon - On 15/12/2013</small><br>
+								<a class="t-overflow" href="">Maecenas venenatis enim
+									condimentum ultrices fringilla. Nulla eget libero rhoncus,
+									bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar,
+									ornare turpis id</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img width="40" src="img/profile-pics/4.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<small class="text-muted">Mitch Bradberry - On
+									14/12/2013</small><br> <a class="t-overflow" href="">Phasellus
+									interdum felis enim, eu bibendum ipsum tristique vitae.
+									Phasellus feugiat massa orci, sed viverra felis aliquet quis.
+									Curabitur vel blandit odio. Vestibulum sagittis quis sem sit
+									amet tristique.</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img width="40" src="img/profile-pics/1.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<small class="text-muted">Nadin Jackson - On 15/12/2013</small><br>
+								<a class="t-overflow" href="">Ipsum wintoo consectetur urna
+									nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu
+									adipiscing lectus</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img width="40" src="img/profile-pics/2.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<small class="text-muted">David Villa - On 16/12/2013</small><br>
+								<a class="t-overflow" href="">Suspendisse in purus ut nibh
+									placerat Cras pulvinar euismod nunc quis gravida. Suspendisse
+									pharetra</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img width="40" src="img/profile-pics/3.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<small class="text-muted">Harris worgon - On 17/12/2013</small><br>
+								<a class="t-overflow" href="">Maecenas venenatis enim
+									condimentum ultrices fringilla. Nulla eget libero rhoncus,
+									bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar,
+									ornare turpis id</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img width="40" src="img/profile-pics/4.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<small class="text-muted">Mitch Bradberry - On
+									18/12/2013</small><br> <a class="t-overflow" href="">Phasellus
+									interdum felis enim, eu bibendum ipsum tristique vitae.
+									Phasellus feugiat massa orci, sed viverra felis aliquet quis.
+									Curabitur vel blandit odio. Vestibulum sagittis quis sem sit
+									amet tristique.</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img width="40" src="img/profile-pics/5.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<small class="text-muted">Wendy Mitchell - On 19/12/2013</small><br>
+								<a class="t-overflow" href="">Integer a eros dapibus,
+									vehicula quam accumsan, tincidunt purus</a>
+							</div>
+						</div>
+					</div>
+					<div class="media text-center whiter l-100">
+						<a href=""><small>VIEW ALL</small></a>
+					</div>
+				</div>
+			</div>
+			<!-- Notification Drawer帮助 -->
+			<div id="notifications" class="tile drawer animated">
+				<div class="listview narrow">
+					<div class="media">
+						<a href="">帮助</a> <span class="drawer-close">&times;</span>
+					</div>
+					<div class="overflow" style="height: 254px">
+						<div class="media">
+							<div class="pull-left">
+								<img width="40" src="img/profile-pics/1.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<small class="text-muted">Nadin Jackson - 2 Hours ago</small><br>
+								<a class="t-overflow" href="">Mauris consectetur urna nec
+									tempor adipiscing. Proin sit amet nisi ligula. Sed eu
+									adipiscing lectus</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img width="40" src="img/profile-pics/2.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<small class="text-muted">David Villa - 5 Hours ago</small><br>
+								<a class="t-overflow" href="">Suspendisse in purus ut nibh
+									placerat Cras pulvinar euismod nunc quis gravida. Suspendisse
+									pharetra</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img width="40" src="img/profile-pics/3.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<small class="text-muted">Harris worgon - On 15/12/2013</small><br>
+								<a class="t-overflow" href="">Maecenas venenatis enim
+									condimentum ultrices fringilla. Nulla eget libero rhoncus,
+									bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar,
+									ornare turpis id</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img width="40" src="img/profile-pics/4.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<small class="text-muted">Mitch Bradberry - On
+									14/12/2013</small><br> <a class="t-overflow" href="">Phasellus
+									interdum felis enim, eu bibendum ipsum tristique vitae.
+									Phasellus feugiat massa orci, sed viverra felis aliquet quis.
+									Curabitur vel blandit odio. Vestibulum sagittis quis sem sit
+									amet tristique.</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img width="40" src="img/profile-pics/1.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<small class="text-muted">Nadin Jackson - On 15/12/2013</small><br>
+								<a class="t-overflow" href="">Ipsum wintoo consectetur urna
+									nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu
+									adipiscing lectus</a>
+							</div>
+						</div>
+						<div class="media">
+							<div class="pull-left">
+								<img width="40" src="img/profile-pics/2.jpg" alt="">
+							</div>
+							<div class="media-body">
+								<small class="text-muted">David Villa - On 16/12/2013</small><br>
+								<a class="t-overflow" href="">Suspendisse in purus ut nibh
+									placerat Cras pulvinar euismod nunc quis gravida. Suspendisse
+									pharetra</a>
+							</div>
+						</div>
+					</div>
+					<div class="media text-center whiter l-100">
+						<a href=""><small>VIEW ALL</small></a>
+					</div>
+				</div>
+			</div>
+			<!-- Breadcrumb -->
+			<ol class="breadcrumb hidden-xs">
+				<li><a href="settingindex4.html">常用工具管理</a></li>
+				<li><a href="settingindex3.html">产品配置与管理</a></li>
+				<li class="active">用户管理</li>
+				<li><a href="settingindex.html">系统管理</a></li>
+			</ol>
+			<h4 class="page-title">用户管理页面</h4>
+			<div class="block-area">
+				<h3 class="block-title">账号管理</h3>
+				<div class="table-responsive overflow">
+					<div id="btnAddRemove">
+						<button class="btn btn-default" id="addtable4Row">
+							<span>添加账号</span> <span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<div class="modal fade in" id="addtableRow-modal" tabindex="-1"
+							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+							data-backdrop="static">
+							<div class="modal-dialog">
+								<div class="modal-content" style="background: #000;">
+									<div class="modal-header" id="title-check">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+										<h4 class="modal-title title-check">添加账号信息</h4>
+									</div>
+									<div class="modal-body">
+										<div class="form-horizontal"></div>
+									</div>
+									<div class="modal-footer">
+											<button type="button" class="btn btn-default" id="btn-addclose">关闭</button>
+											<button type="button"  style="display:none;" class="btn btn-default" id="btn-addback">上一步</button>
+											<button type="button" class="btn btn-primary footer-btn"  id="btn-addsave">保存</button>
+											<button type="button"  style="display:none;" class="btn btn-primary footer-btn" id="btn-addnext">下一步</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<!--    修改----------------------------部分 -->
+						<div class="modal fade in" id="changetableRow-modal" tabindex="-1"
+							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+							data-backdrop="static">
+							<div class="modal-dialog">
+								<div class="modal-content" style="background: #000;">
+									<div class="modal-header" id="title-change">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+										<h4 class="modal-title title-check">修改账号信息</h4>
+									</div>
+									<div class="modal-body">
+										<div class="form-horizontal"></div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" id="btn-changeclose">关闭</button>
+										<button type="button"  style="display:none;" class="btn btn-default" id="btn-changeback">上一步</button>
+										<button type="button" class="btn btn-primary footer-btn" id="btn-changesave">保存</button>
+										<button type="button"  style="display:none;" class="btn btn-primary footer-btn" id="btn-changenext">下一步</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--   删除--------------------------------部分 -->
+						<div class="modal fade in" id="Confirm-modal" tabindex="-1"
+							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+							data-backdrop="static">
+							<div class="modal-dialog">
+								<div class="modal-content" style="background: #000;">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+										<h4 class="modal-title">操作</h4>
+									</div>
+									<div class="modal-body">确定删除此行吗？</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">关闭</button>
+										<button type="button" class="btn btn-primary footer-btn"
+											data-dismiss="modal" id="btn-ConfirmdelRow">提交更改</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- 修改--------------密码----------------部分 -->
+						<div class="modal fade in" id="changepsw" tabindex="-1"
+							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+							data-backdrop="static">
+							<div class="modal-dialog">
+								<div class="modal-content" style="background: #000;">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+										<h4 class="modal-title">修改密码信息</h4>
+									</div>
+									<div class="modal-body">
+									     <div class="form-horizontal"></div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">关闭</button>
+										<button type="button" class="btn btn-primary footer-btn"
+											data-dismiss="modal" id="btn-changepsw">保存</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<table id="table4"
+						   data-toggle="table"
+						   data-url="/user/getUserList.do"
+						   data-toolbar="#btnAddRemove"
+						   data-pagination=true
+						   data-show-columns=true
+					>
+						<thead>
+							<tr>
+								<th data-field="id" data-sortable="true">编号</th>
+								<th data-field="userName" data-sortable="true">用户名</th>
+								<th data-field="realName" data-sortable="true">实际姓名</th>
+								<th data-field="email" data-sortable="true">邮箱</th>
+								<th data-field="telephone" data-sortable="true">电话</th>
+								<th data-field="roleName" data-sortable="true">角色</th>
+								<th data-events="operateEvents"data-formatter="operateFormatter">操作</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</section>
+		<!-- Older IE Message -->
+		<!--[if lt IE 9]>
+    <div class="ie-block">
+        <h1 class="Ops">抱歉！</h1>
+        <p>您正在使用一个过时的Internet Explorer版本，升级到以下任何Web浏览器，以便访问该网站的最大功能。 </p>
+        <ul class="browsers">
+            <li>
+                <a href="http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html">
+                    <img src="img/browsers/chrome.png" alt="">
+                    <div>Google Chrome</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.firefox.com.cn/">
+                    <img src="img/browsers/firefox.png" alt="">
+                    <div>Mozilla Firefox</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.oupeng.com/download">
+                    <img src="img/browsers/opera.png" alt="">
+                    <div>Opera</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.apple.com/cn/safari/">
+                    <img src="img/browsers/safari.png" alt="">
+                    <div>Safari</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads">
+                    <img src="img/browsers/ie.png" alt="">
+                    <div>Internet Explorer(New)</div>
+                </a>
+            </li>
+        </ul>
+        <p>升级你的浏览器更安全和更快的网络体验。 <br/>感谢你的支持...</p>
+    </div>
+    <![endif]-->
+	</section>
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Bootstrap-table -->
+	<script src="js/bstable/bootstrap-table.js"></script>
+	<script src="js/bstable/bootstrap-table-zh-CN.js"></script>
+	<script src="js/icheck.js"></script>
+
+
+<!--	<script src="js/validation/validationEngine.min.js"></script>
+	<script src="js/scroll.min.js"></script>
+	<script src="js/calendar.min.js"></script>
+	<script src="js/feeds.min.js"></script>
+	<script src="js/fileupload.min.js"></script>
+	<script src="js/select.min.js"></script>
+	<script src="js/chosen.min.js"></script>-->
+
+	<script src="js/functions.js"></script>
+	<script src="js/changebgsave.js"></script>
+	<script>
+	    var uprealname = null,upname = null,uptel=null,upemail=null;
+	    var addname =null, addpsw = null, addsurepsw = null, addrealname = null, addemail = null, addtel = null,addrole = null;
+	    var uprole=null;
+	    var ids=[];
+	    var idpsw=[];
+		var field = [ "userName", "password", "confirmPsw", "realName","email", "telephone", "roleName"], 
+			titleText = ["用户名", "密码", "确认密码", "实际姓名", "Email", "电话", "角色"];
+		var fields = [ "oldpsw", "newpsw", "surepsw" ],
+		    nameVal =[ "旧密码","新密码", "确认密码" ];
+		function operateFormatter(value, row, index) {
+			if(row.userName == "admin"){
+				return [ '<img src="images/edit.png"/ class="cursor edit"/>'
+							+ '<img src="images/changepsw.png" style="padding-left: 10%;" class="cursor changepsw changes" />' ]
+							.join('');
+			}else{
+				return [ '<img src="images/edit.png"/ class="cursor edit"/>'
+							+ '<img src="images/false.png" style="padding-left: 10%;" class="cursor imgDel remove"/>'
+							+ '<img src="images/changepsw.png" style="padding-left: 10%;" class="cursor changepsw changes" />' ]
+							.join('');
+			}
+		}
+		window.operateEvents = {		
+				/* -----------------修改密码------------- */
+			'click .changepsw' : function(e, value, row, index) {
+				idpsw.push(row.id);
+				$("#changepsw").modal("show");
+				 $("#changepsw>.modal-dialog>.modal-content>.modal-body>.form-horizontal").html("");					
+				var val = [];
+				for (var j = 0; j < fields.length; j++) {
+					val.push(fields[j]);
+				}
+				var valLen = nameVal.length;
+				for (var i = 0; i < valLen; i++) {
+					switch (nameVal[i]) {
+					case "旧密码":
+						var formGroup = $('<div class="form-group">'
+								+ '<div class="col-md-8">'
+								+ '<input type="password" class="form-control input-sm m-t-15 psw-old" pattern="/^.{6,}$/" value="" autocomplete="new-password">'
+								+ '</div>' + '</div>');
+						var label = $('<lable class="col-md-3 control-label">'
+								+ nameVal[i] + ':</lable>');
+						$(formGroup).prepend(label);
+						$("#changepsw>.modal-dialog>.modal-content>.modal-body>.form-horizontal").append(formGroup);
+						break;
+					case "新密码":
+						var formGroup = $('<div class="form-group">'
+								+ '<div class="col-md-8">'
+								+ '<input type="password" class="form-control input-sm m-t-15 psw-new" pattern="/^.{6,}$/" value="" autocomplete="new-password">'
+								+ '</div>' + '</div>');
+						var label = $('<lable class="col-md-3 control-label">'
+								+ nameVal[i] + ':</lable>');
+						$(formGroup).prepend(label);
+						$("#changepsw>.modal-dialog>.modal-content>.modal-body>.form-horizontal").append(formGroup);
+						break;
+					case "确认密码":
+						var formGroup = $('<div class="form-group">'
+								+ '<div class="col-md-8">'
+								+ '<input type="password" class="form-control input-sm m-t-15 psw-sure" pattern="/^.{6,}$/" value="" autocomplete="new-password">'
+								+ '</div>' + '</div>');
+						var label = $('<lable class="col-md-3 control-label">'
+								+ nameVal[i] + ':</lable>');
+						$(formGroup).prepend(label);
+						$("#changepsw>.modal-dialog>.modal-content>.modal-body>.form-horizontal").append(formGroup);
+						break;
+					}
+				}
+			},
+			
+			
+			/*----------------- 删除部分------------------------- */
+			'click .remove' : function(e, value, row, index) {					
+					$("#Confirm-modal").modal("show");
+					$("#btn-ConfirmdelRow").click(function() {
+						 $.ajax({
+						    url:"/user/delUser.do",
+						    type:"post",
+						    data:{
+						    	userId:row.id
+						    },
+						    dataType:"json",
+						    success:function(data){
+						    	if(data.success == "1"){
+						    	    alert("删除成功");
+						    	    window.location.reload();
+						    	}else{
+						    		alert("删除失败");
+						    	}
+						    }
+						}); 
+						$("#table4").bootstrapTable('remove', {
+							field : 'userId',
+							values : [ row.id ]
+						});
+					});
+			},
+            /*  ---------------------修改内容部分-------------------- */
+			'click .edit' : function(e, value, index, row) {
+				ids.push(index.id);
+				 var strSel=[];
+                 function test(){
+                	 $("#changetableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").html("");
+                    var InputVal = [];
+     				for (var j = 0; j < field.length; j++) {
+     					InputVal.push(index[field[j]]);
+     				}   			
+     				var length = titleText.length;
+     				for (var i = 0; i < length; i++) {
+     					switch (titleText[i]) {
+     					case "用户名":
+     						upname = InputVal[i];
+     						var formGroup = $('<div class="form-group">'
+     								+ '<div class="col-md-8">'
+     								+ '<input type="text" class="form-control input-sm m-t-15 change-name"  value="'+InputVal[i]+'">'
+     								+ '</div>' + '</div>');
+     						var label = $('<lable class="col-md-3 control-label">'
+     								+ titleText[i] + ':</lable>');
+     						$(formGroup).prepend(label);
+     						$("#changetableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal")
+     								.append(formGroup);
+     						break;
+     					case "实际姓名":
+     						uprealname = InputVal[i];
+     						var formGroup = $('<div class="form-group">'
+     								+ '<div class="col-md-8">'
+     								+ '<input type="text" class="form-control input-sm m-t-15 change-realname"  value="'+InputVal[i]+'">'
+     								+ '</div>' + '</div>');
+     						var label = $('<lable class="col-md-3 control-label">'
+     								+ titleText[i] + ':</lable>');
+     						$(formGroup).prepend(label);
+     						$("#changetableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal")
+     								.append(formGroup);
+     						break;
+     					case "电话":
+     						uptel = InputVal[i];
+     						var formGroup = $('<div class="form-group">'
+     								+ '<div class="col-md-8">'
+     								+ '<input type="text" class="form-control input-sm m-t-15 change-tel"  value="'+InputVal[i]+'">'
+     								+ '</div>' + '</div>');
+     						var label = $('<lable class="col-md-3 control-label">'
+     								+ titleText[i] + ':</lable>');
+     						$(formGroup).prepend(label);
+     						$("#changetableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").append(formGroup);
+     						break;
+     					case "角色":
+     						var str=InputVal[i];
+     						var select = $('<select data-placeholder="请选择" class="form-control m-t-15 change-roles" id="change-role"></select>');
+     						if(strSel.length > 0){
+     							select.append('<option value="">' + strSel + '</option>');
+     						}else{
+     							select.append('<option value="'+index.roleId+'">' + InputVal[i] + '</option>');
+     						}
+     						$.ajax({
+     						    url:"/userRole/getUserRoleList.do",
+     						    type:"post",
+     						    dataType:"json",
+     						    success:function(data){
+     						    	for(var j =0;j<data.length;j++){
+     						    		if(strSel.length > 0){
+     						    			if(strSel == data[j].name){
+         						    		}else{
+         						    			select.append('<option value="'+data[j].id+'">' + data[j].name + '</option>');
+         						    		}
+     						    		}else{
+     						    			if(str == data[j].name){
+         						    		}else{
+         						    			select.append('<option value="'+data[j].id+'">' + data[j].name + '</option>');
+         						    		}
+     						    		}
+     						    		
+     						    	}
+     						    }
+     						});
+     						
+     						var formGroup = $('<div class="form-group"></div>').append(
+     										$('<div class="col-md-8"></div>').append(select));
+     						var label = $('<lable class="col-md-3 control-label">'+ titleText[i] + ':</lable>');
+     						var sel=null;
+     						$(formGroup).prepend(label);
+     						$("#changetableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").append(formGroup);
+     						if($("#change-role option:selected").text()!= "系统管理员"){
+     							sel=$("#change-role option:selected").text();
+     							$("#btn-changesave").hide();
+					            $("#btn-changenext").show();
+					            $("#btn-changenext").off("click").on("click",function(){
+					            	  uprole=index.roleId;
+	     							  upname=$(".change-name").val();
+	     							  uptel=$(".change-tel").val();
+	     							  upemail=$(".change-email").val();
+	     							  uprealname= $(".change-realname").val();
+	     							  console.log(uprole);
+	     							 console.log(upname);
+	     							console.log(uptel);
+	     							console.log(upemail);
+	     							console.log(uprealname);
+				            	    strSel=[];
+									$("#title-change").find("h4").html("权限配置");
+									$("#btn-changeclose").hide();
+									$("#btn-changeback").show();
+									$("#btn-changenext").hide();
+									$("#btn-changesave").show();
+									$("#btn-changeback").off("click").on("click",function(){
+										if($(this).text()=="上一步"){
+											$("#btn-changesave").hide();
+											$("#btn-changenext").show();
+											strSel.push(sel);
+											test();
+											$("#title-change").find("h4").html("修改账号信息");
+											$("#btn-changeclose").show();
+											$("#btn-changeback").hide();
+										}else {
+											$("#changetableRow-modal").modal("hide");
+										}
+									});                                        
+										var changelist='<div id="power-list" class="check-list"></div>';
+										$.ajax({
+										    url:"/userAuthorize/getJurisModuleList.do?requestType=update",
+										    type:"post",
+										    data:{userId:index.id},
+										    dataType:"json",
+										    success:function(data){
+										    	var changepower =null;
+										    	var changeselcet= null;
+										     	for(var k=0; k<data.length;k++){
+													if(data[k].nameen=="view"){
+														  if(data[k].checked=="1"){
+															  changepower=$(' <div  class="checkbox m-b-5"></div>');
+															  changeselcet='<label><input name="test" type="checkbox" checked value="'+data[k].id+':'+ data[k].monitorId +'">'+ data[k].namezh +'</label>';
+														  }else{
+															  changepower=$(' <div  class="checkbox m-b-5"></div>');
+															  changeselcet='<label><input name="test" type="checkbox"  value="'+data[k].id+':'+ data[k].monitorId +'">'+ data[k].namezh +'</label>';
+														  }
+														
+														$(changepower).append(changeselcet);
+														$("#power-list").append(changepower);
+													} else{
+														 if(data[k].checked=="1"){
+														       changepower=$(' <div  class="checkbox m-b-5"></div>');
+														       changeselcet='<label><input name="test" type="checkbox" checked  value="'+data[k].id+':'+ data[k].monitorId +'">'+ data[k].namezh +'</label>';
+														 }else{
+															   changepower=$(' <div  class="checkbox m-b-5"></div>');
+														       changeselcet='<label><input name="test" type="checkbox"  value="'+data[k].id+':'+ data[k].monitorId +'">'+ data[k].namezh +'</label>';
+														 }
+														 $(changepower).append(changeselcet);
+														$("#power-list").append(changepower);
+													}
+										    	} 
+										    }
+										});
+										
+										 $("#changetableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").html(changelist);	
+								});
+     						}else{
+     							 $("#btn-changesave").show();
+					             $("#btn-changenext").hide();
+					             $("#btn-changeclose").show();
+								 $("#btn-changeback").hide();
+     						}
+     						
+     						$("#change-role").change(function(){
+     							if ($("#change-role option:selected").text() != "系统管理员") {
+     								sel=$("#change-role option:selected").text();
+     								   $("#btn-changesave").hide();
+						               $("#btn-changenext").show();
+						               $("#btn-changenext").off("click").on("click",function(){
+						            	    strSel=[];
+						            	    uprole=$(".change-roles").val();
+			     							upname=$(".change-name").val();
+			     							uptel=$(".change-tel").val();
+			     							upemail=$(".change-email").val();
+			     							uprealname= $(".change-realname").val();
+											$("#title-change").find("h4").html("权限配置");
+											$("#btn-changeclose").hide();
+											$("#btn-changeback").show();
+											$("#btn-changenext").hide();
+											$("#btn-changesave").show();
+											$("#btn-changeback").off("click").on("click",function(){
+												if($(this).text()=="上一步"){
+													$("#btn-changesave").hide();
+													$("#btn-changenext").show();
+													strSel.push(sel);
+													test();
+													$("#title-change").find("h4").html("修改账号信息");
+													$("#btn-changeclose").show();
+													$("#btn-changeback").hide();
+												}else {
+													$("#changetableRow-modal").modal("hide");
+												}
+											});                                        
+     											var changelist='<div id="power-list" class="check-list"></div>';
+												$.ajax({
+												    url:"/userAuthorize/getJurisModuleList.do?requestType=add",
+												    type:"post",
+												    dataType:"json",
+												    success:function(data){
+												    	var changepower =null;
+												    	var changeselcet= null;
+												     	for(var k=0; k<data.length;k++){
+															if(data[k].nameen=="view"){
+																  if(data[k].checked=="1"){
+																	  changepower=$(' <div  class="checkbox m-b-5"></div>');
+																	  changeselcet='<label><input name="test" type="checkbox" checked value="'+data[k].id+':'+ data[k].monitorId +'">'+ data[k].namezh +'</label>';
+																  }else{
+																	  changepower=$(' <div  class="checkbox m-b-5"></div>');
+																	  changeselcet='<label><input name="test" type="checkbox"  value="'+data[k].id+':'+ data[k].monitorId +'">'+ data[k].namezh +'</label>';
+																  }
+																
+																$(changepower).append(changeselcet);
+																$("#power-list").append(changepower);
+															} else{
+																 if(data[k].checked=="1"){
+																       changepower=$(' <div  class="checkbox m-b-5"></div>');
+																       changeselcet='<label><input name="test" type="checkbox" checked  value="'+data[k].id+':'+ data[k].monitorId +'">'+ data[k].namezh +'</label>';
+																 }else{
+																	   changepower=$(' <div  class="checkbox m-b-5"></div>');
+																       changeselcet='<label><input name="test" type="checkbox"  value="'+data[k].id+':'+ data[k].monitorId +'">'+ data[k].namezh +'</label>';
+																 }
+																 $(changepower).append(changeselcet);
+																$("#power-list").append(changepower);
+															}
+												    	} 
+												    }
+												});
+												 $("#changetableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").html(changelist);	
+     								});
+     							} else{
+     								 $("#btn-changesave").show();
+    					             $("#btn-changenext").hide();
+    					             $("#btn-changeclose").show();
+    								 $("#btn-changeback").hide();
+    								 uprole=$(".change-roles").val();
+     							}
+     						});
+     						break;
+     					case "Email":
+     						upemail=InputVal[i];
+     						var formGroup = $('<div class="form-group">'
+     								+ '<div class="col-md-8">'
+     								+ '<input type="text" class="form-control input-sm m-t-15 change-email"  value="'+InputVal[i]+'">'
+     								+ '</div>' + '</div>');
+     						var label = $('<lable class="col-md-3 control-label">'
+     								+ titleText[i] + ':</lable>');
+     						$(formGroup).prepend(label);
+     						$("#changetableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal")
+     								.append(formGroup);
+     						break;
+     					}
+     				}
+     				$('#changetableRow-modal').modal('show');
+                   }
+                 test();
+			}
+		};
+        /*  修改密码请求 */
+		$("#btn-changepsw").click(function(){
+			if(cp()){
+			var pw = idpsw[0];
+		    var opsw=$(".psw-old").val();
+		    var npsw=$(".psw-new").val();
+		    var spsw=$(".psw-sure").val();
+		    $.ajax({
+			    url:"/user/updateUserPassword.do",
+			    type:"post",
+			    data:{userId:pw,oldPsw:opsw,newPsw:npsw,confirmPsw:spsw}, 
+			    dataType:"json",
+			    success:function(data){
+			    	if(data.success=="1"){
+			    		alert("修改密码成功！ ");				    		
+			    		$("#changepsw").modal("hide");
+			    		window.location.reload();
+			    	}else if(data.success=="0"){
+			    		alert("修改密码失败，请稍后再试!");
+			    	}else if(data.success=="3"){
+			    		alert("原始密码不正确  ！ ");
+			    	}else if(data.success=="4"){
+			    		alert("新密码两次输入不一致  ！ ");
+			    	}
+			    }
+		     });	
+		    }
+	     }); 
+		  function cp(){
+			  var opsw=$(".psw-old").val();
+			  var npsw=$(".psw-new").val();
+			  var spsw=$(".psw-sure").val();
+			
+			  if(""==$.trim(opsw)){
+				   alert("密码不能为空 ！ ");	
+				   return false;
+			  }else if(opsw.length<6){
+				   alert("密码不能少于6位 ！ ");	
+				   return false;
+			  }else {
+	    			return true;
+	    	  }			  
+			  if(""==$.trim(npsw)){
+				  alert("新密码不能为空 ！ ")	;	
+				  return false;
+			  }else if(npsw.length<6){
+				   alert("新密码不能少于6位 ！ ");	
+				   return false;
+			  }else {
+	    			return true;
+	    	  }			  
+			  if(""==$.trim(spsw)){
+				  alert("确认密码不能为空 ！ ")	;	  
+				  return false;
+			  }else if(spsw.length<6){
+				   alert("确认密码不能少于6位 ！ ");	
+				   return false;
+			  }else {
+	    			return true;
+	    	  }
+			  if(npsw !=spsw){
+				  alert("两次密码不一致 请重新输入 ！");
+				  return false;
+			  }else {
+	    		  return true;
+	    	  }
+			 
+		  }
+		  
+		/*   关闭修改方法 */
+		  $("#btn-changeclose").click(function(){
+			  $("#changetableRow-modal").modal('hide');
+			  $("#btn-changenext").hide();
+			  $("#btn-changesave").show();
+		  });
+		  /*   修改请求 */
+		  $("#btn-changesave").click(function(){
+			  var id=ids[0];
+			  var chk_value =[]; 
+			  var changevalue="";
+			  $('input[name="test"]:checked').each(function(){ 
+			  chk_value.push($(this).val()); 
+			  });
+			  
+			  if(uprole != null && uprole !="1"){
+				  if(chk_value.length==0){
+					  alert("你还没有选择任何内容");
+					  return false;
+				  } else{
+					  for(var j=0; j<chk_value.length;j++){
+						  changevalue+=chk_value[j]+",";
+					  }
+				  }
+			  }
+			   var changemoduleIds=changevalue.substring("",changevalue.length-1);
+			  console.log(uprole);
+		 	  if(uprole != null && uprole !="1"){
+				  if(cpower()){	
+					    $.ajax({
+						    url:"/user/updateUser.do",
+						    type:"post",
+						    data:{id:id,userName:upname,realName:uprealname,email:upemail,telephone:uptel,roleId:uprole,moduleIds:changemoduleIds},
+						    dataType:"json",
+						    success:function(data){
+						    	if(data.success=="1"){
+						    		alert("修改成功 ！ ");				    		
+						    		$("#changetableRow-modal").modal("hide");
+						    		window.location.reload();
+						    	}else if(data.success=="2"){
+						    		alert("用户名已经存在!");
+						    	}else{
+						    		alert("修改失败  ！ ");
+						    	}
+						    }
+					    });	 
+					 }
+			  }else{ 
+				  if(cc()){	
+						//var id=ids[0]; 
+					    var cname=$(".change-name").val();
+					    var crealname=$(".change-realname").val();
+					    var ctel=$(".change-tel").val();
+					    var crole=$(".change-roles").val();
+					    var cemail=$(".change-email").val();
+					    $.ajax({
+						    url:"/user/updateUser.do",
+						    type:"post",
+						    data:{id:id,userName:cname,realName:crealname,email:cemail,telephone:ctel,roleId:crole,moduleIds:changemoduleIds},
+						    dataType:"json",
+						    success:function(data){
+						    	if(data.success=="1"){
+						    		alert("修改成功 ！ ");				    		
+						    		$("#changetableRow-modal").modal("hide");
+						    		window.location.reload();
+						    	}else if(data.success=="2"){
+						    		alert("用户名已经存在!");
+						    	}else{
+						    		alert("修改失败  ！ ");
+						    	}
+						    }
+					    });	 
+					 }
+			  }
+			  
+		
+		}); 
+		  function cpower(){
+			  console.log(uprealname);
+			  console.log(upname);
+			  console.log(uptel);
+			  console.log(upemail);
+			  console.log(uprole[0]);
+			  if(""==$.trim(uprealname)){
+				   alert("真实姓名不能为空 ！ ");	
+				   return false;
+			  }
+			  if(""==$.trim(upname)){
+				   alert("用户名不能为空 ！ ");	
+				   return false;
+			  }
+			  if(""==$.trim(uptel)){
+				  alert("电话不能为空 ！ ");	
+				  return false;
+			  }
+			  if(""==$.trim(upemail)){
+				  alert("email不能为空 ！ ")	;	  
+				  return false;
+			  }
+			  if(!upemail.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){
+				   alert("邮箱格式不正确！请重新输入");
+				   return false;
+			  }
+			  if (!uptel.match(/^(((13[0-9]{1})|159|153)+\d{8})$/)) { 
+				  alert("手机号格式不正确，请重新输入 ！");
+				  return false;
+			  }
+	    	  return true;
+		  }
+		  function cc(){
+			  var cname=$(".change-name").val();
+			  var ctel=$(".change-tel").val();
+			  var crole=$(".change-roles").val();
+			  var cemail=$(".change-email").val();
+			  var crealname = $(".change-realname").val();
+			  if(""==$.trim(crealname)){
+				   alert("真实姓名不能为空 ！ ");	
+				   return false;
+			  }
+			  if(""==$.trim(cname)){
+				   alert("用户名不能为空 ！ ");	
+				   return false;
+			  }
+			  if(""==$.trim(ctel)){
+				  alert("电话不能为空 ！ ");	
+				  return false;
+			  }
+			  if(""==$.trim(cemail)){
+				  alert("email不能为空 ！ ")	;	  
+				  return false;
+			  }
+			  if("--请选择--"==$.trim(crole)){
+				  alert("角色不能为空 ！");
+				  return false;
+			  }
+			  if(!cemail.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){
+				   alert("邮箱格式不正确！请重新输入");
+				   return false;
+			  }
+			  if (!ctel.match(/^(((13[0-9]{1})|159|153)+\d{8})$/)) { 
+				  alert("手机号格式不正确，请重新输入 ！");
+				  return false;
+			  }
+	    	  return true;
+	    	  
+		  }
+		/**************增加行******************************/
+		$("#addtable4Row").click(function() {
+			    var strSel=[];
+			    function  testadd(){
+							$("#addtableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").html("");
+							var length = titleText.length;
+							for (var i = 0; i < length; i++) {
+								switch (titleText[i]) {
+								case "用户名":
+									var formGroup = $('<div class="form-group">'
+											+ '<div class="col-md-8">'
+											+ '<input type="text" class="form-control input-sm m-t-15 addtableRowInput addname">'
+											+ '</div>' + '</div>');
+									var label = $('<lable class="col-md-3 control-label">'
+											+ titleText[i] + ':</lable>');
+									$(formGroup).prepend(label);
+									$("#addtableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").append(formGroup);
+									break;
+								case "密码":									
+									var formGroup = $('<div class="form-group">'
+											+ '<div class="col-md-8">'
+											+ '<input type="password" class="form-control input-sm m-t-15 addtableRowInput addpsw" autocomplete="new-password">'
+											+ '</div>' + '</div>');
+									var label = $('<lable class="col-md-3 control-label">'
+											+ titleText[i] + ':</lable>');
+									$(formGroup).prepend(label);
+									$("#addtableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").append(formGroup);
+									break;
+								case "确认密码":
+									var formGroup = $('<div class="form-group">'
+											+ '<div class="col-md-8">'
+											+ '<input type="password" class="form-control input-sm m-t-15 addtableRowInput addsurepsw">'
+											+ '</div>' + '</div>');
+									var label = $('<lable class="col-md-3 control-label">'
+											+ titleText[i] + ':</lable>');
+									$(formGroup).prepend(label);
+									$("#addtableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").append(formGroup);
+									break;
+								case "实际姓名":
+									var formGroup = $('<div class="form-group">'
+											+ '<div class="col-md-8">'
+											+ '<input type="text" class="form-control input-sm m-t-15 addtableRowInput addrealname">'
+											+ '</div>' + '</div>');
+									var label = $('<lable class="col-md-3 control-label">'
+											+ titleText[i] + ':</lable>');
+									$(formGroup).prepend(label);
+									$("#addtableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").append(formGroup);
+									break;
+								case "Email":
+									var formGroup = $('<div class="form-group">'
+											+ '<div class="col-md-8">'
+											+ '<input type="email" class="form-control input-sm m-t-15 addtableRowInput addemail">'
+											+ '</div>' + '</div>');
+									var label = $('<lable class="col-md-3 control-label">'
+											+ titleText[i] + ':</lable>');
+									$(formGroup).prepend(label);
+									$("#addtableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal")
+											.append(formGroup);
+									break;
+								case "电话":
+									var formGroup = $('<div class="form-group">'
+											+ '<div class="col-md-8">'
+											+ '<input type="tel" class="form-control input-sm m-t-15 addtableRowInput addtel">'
+											+ '</div>' + '</div>');
+									var label = $('<lable class="col-md-3 control-label">'
+											+ titleText[i] + ':</lable>');
+									$(formGroup).prepend(label);
+									$("#addtableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal")
+											.append(formGroup);
+									break;
+								case "角色":
+									$.ajax({
+									    url:"/userRole/getUserRoleList.do",
+									    type:"post",
+									    dataType:"json",
+									    success:function(data){
+									    	var select = $('<select  class="form-control m-t-15" id="role-select"></select>');
+									    	if(strSel.length!=""){
+									    		select.append('<option value="">'+strSel+'</option>');
+									    	}else{
+									    		select.append('<option value="">--请选择--</option>');
+									    	}
+									    	for(var i =0; i<data.length;i++){
+									    		if(strSel==data[i].name){
+									    			
+									    		}else{
+									    			select.append('<option value="" id="'+data[i].id +'">' + data[i].name+ '</option>');
+									    		}
+									        }
+											var formGroup = $('<div class="form-group"></div>').append($('<div class="col-md-8"></div>').append(select));
+											var label = $('<lable class="col-md-3 control-label">角色:</lable>');
+											var sel=null;
+											$(formGroup).prepend(label);
+											$("#addtableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").append(formGroup);
+											$("#role-select").change(function() {
+												if ($("#role-select option:selected").text() == "普通用户") {
+													sel=$("#role-select option:selected").text();
+													               $("#btn-addsave").hide();
+													               $("#btn-addnext").show();
+													               $("#btn-addnext").off("click").on("click",function(){
+														            addname =$(".addname").val();
+														            addpsw = $(".addpsw").val();
+														            addsurepsw = $(".addsurepsw").val();
+														            addrealname = $(".addrealname").val();
+														            addemail = $(".addemail").val();
+														            addtel = $(".addtel").val();
+														           	addrole = $("#role-select option:selected")[0].id;
+													            	    strSel=[];
+																		$("#title-check").find("h4").html("权限配置");
+																		$("#btn-addclose").hide();
+																		$("#btn-addback").show();
+																		$("#btn-addnext").hide();
+																		$("#btn-addsave").show();
+																		$("#btn-addback").off("click").on("click",function(){
+																			if($(this).text()=="上一步"){
+																				$("#btn-addsave").hide();
+																				$("#btn-addnext").show();
+																				strSel.push(sel);
+																				testadd();
+																				$("#title-check").find("h4").html("添加账号信息");
+																				$("#btn-addclose").show();
+																				$("#btn-addback").hide();
+																			}else {
+																				$("#addtableRow-modal").modal("hide");
+																			}
+																		});
+																		var addlist='<div id="add-list" class="check-list"></div>';
+																		$.ajax({
+																			url:"/userAuthorize/getJurisModuleList.do?requestType=add",
+																			type:"post",
+																			dataType:"json",
+																			success:function(data){
+																				for(var k=0; k<data.length;k++){
+																					if(data[k].nameen=="view"){
+																						var addpower=$(' <div  class="checkbox m-b-5"></div>');
+																						var addselect='<label><input name="test" type="checkbox"  value="'+data[k].id+':'+ data[k].monitorId +'">'+ data[k].namezh +'</label>';
+																						$(addpower).append(addselect);
+																						$("#add-list").append(addpower);
+																					} else{
+																						var addpower=$(' <div  class="checkbox m-b-5"></div>');
+																						var addselect='<label><input name="test" type="checkbox"  value="'+data[k].id+':'+ data[k].monitorId +'">'+ data[k].namezh +'</label>';
+																						$(addpower).append(addselect);
+																						$("#add-list").append(addpower);
+																					}
+																				}
+																			}
+																		});
+																		$("#addtableRow-modal>.modal-dialog>.modal-content>.modal-body>.form-horizontal").html(addlist);
+																	})
+																} else {
+																	//系统管理员
+																	$("#btn-addclose").show();
+																	$("#btn-addback").hide();
+																	$("#btn-addnext").hide();
+																	$("#btn-addsave").show();
+																}
+											});
+									     }
+									 });
+									break;
+								}
+							}
+							$("#addtableRow-modal").modal("show");
+						}
+			    testadd();
+		    });
+		
+		  $("#btn-addsave").click(function(){
+			      var addVal = addrole;
+				  var chk_value =[]; 
+				  var addvalue="";
+				 if(addVal != "1" && addVal!=null){
+					 if(addpower()){
+						  $('input[name="test"]:checked').each(function(){ 
+							  chk_value.push($(this).val()); 
+							  }); 
+							  if(chk_value.length==0){
+								  alert("你还没有选择任何内容！");
+							  }else {
+								  for(var j=0; j<chk_value.length;j++){
+									  addvalue+=chk_value[j]+",";
+								  }
+							  }
+						 var addmoduleIds=addvalue.substring("",addvalue.length-1);
+						 $.ajax({
+							    url:"/user/addUser.do",
+							    type:"post",
+							    data:{userName:addname,password:addpsw,confirmPsw:addsurepsw,realName:addrealname,email:addrealname,telephone:addtel,roleId:addVal,moduleIds:addmoduleIds},
+							    dataType:"json",
+							    success:function(data){
+							    	if(data.success=="1"){
+							    		alert("添加成功 ！ ");				    		
+							    		$("#addtableRow-modal").modal("hide");
+							    		window.location.reload();
+							    	}else if(data.success=="2"){
+							    		alert("用户名已经存在!");
+							    	}else{
+							    		alert("添加失败  ！ ");
+							    	}
+							    }
+						    });
+					     }
+					 }else{
+						  if(ck()){
+							    var sVal=$("#role-select option:selected")[0].id;
+							    var sname=$(".addname").val();
+							    var spsw=$(".addpsw").val();
+							    var ssurepsw=$(".addsurepsw").val();
+							    var srealname=$(".addrealname").val();
+							    var semail=$(".addemail").val();
+							    var stel=$(".addtel").val();
+							    $.ajax({
+								    url:"/user/addUser.do",
+								    type:"post",
+								    data:{userName:sname,password:spsw,confirmPsw:ssurepsw,realName:srealname,email:semail,telephone:stel,roleId:sVal,moduleIds:addmoduleIds},
+								    dataType:"json",
+								    success:function(data){
+								    	if(data.success=="1"){
+								    		alert("添加成功 ！ ");				    		
+								    		$("#addtableRow-modal").modal("hide");
+								    		window.location.reload();
+								    	}else if(data.success=="2"){
+								    		alert("用户名已经存在!");
+								    	}else{
+								    		alert("添加失败  ！ ");
+								    	}
+								    }
+							    });
+							 }
+					  }
+		}); 
+		  $("#btn-addclose").click(function(){
+		  $("#addtableRow-modal").modal('hide');
+		  $("#btn-addnext").hide();
+		  $("#btn-addsave").show();
+		  });
+		  function addpower(){
+			  var sVal=addrole;
+			  var sname=addname;
+			  var spsw=addpsw;
+			  var ssurepsw=addsurepsw;
+			  var srealname=addrealname;
+			  var semail=addemail;
+			  var stel=addtel;
+			
+			  if(""==$.trim(sname)){
+				   alert("用户名不能为空 ！ ");	
+				   return false;
+			  }
+			  if(""==$.trim(spsw)){
+				  alert("密码不能为空 ！ ");
+				  return false ;
+			  }else if(spsw.length<6){
+				   alert("密码不能少于6位 ！ ");	
+				   return false;
+			  }
+			  if(""==$.trim(ssurepsw)){
+				  alert("确认密码不能为空 ！ ")	;	
+				  return false;
+			  }
+			  
+			  if(""==$.trim(srealname)){
+				  alert("真实姓名不能为空 ！ ")	;	
+				  return false;
+			  }
+			  if(""==$.trim(semail)){
+				  alert("email不能为空 ！ ")	;	  
+				  return false;
+			  }
+			  if(""==$.trim(stel)){
+				  alert("电话不能为空 ！ ");	
+				  return false;
+			  }
+			  if("--请选择--"==$.trim(sVal)){
+				  alert("角色不能为空 ！");
+				  return false;
+			  }
+			  if(!semail.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){
+				   alert("邮箱格式不正确！请重新输入");
+				   return false;
+			  }
+			  
+			  if(spsw !=ssurepsw){
+				  alert("两次密码不一致 请重新输入 ！");
+				  return false;
+			  }
+			  if (!stel.match(/^(((13[0-9]{1})|159|153)+\d{8})$/)) { 
+				  alert("手机号格式不正确，请重新输入 ！");
+				  return false;
+			  }
+			  return true;
+		  }
+		  function ck(){
+			  var sVal=$("#role-select option:selected").text();
+			  var sname=$(".addname").val();
+			  var spsw=$(".addpsw").val();
+			  var ssurepsw=$(".addsurepsw").val();
+			  var srealname=$(".addrealname").val();
+			  var semail=$(".addemail").val();
+			  var stel=$(".addtel").val();
+			
+			  if(""==$.trim(sname)){
+				   alert("用户名不能为空 ！ ");	
+				   return false;
+			  }
+			  
+			  if(""==$.trim(spsw)){
+				  alert("密码不能为空 ！ ");
+				  return false ;
+			  }else if(spsw.length<6){
+				   alert("密码不能少于6位 ！ ");	
+				   return false;
+			  }
+			  
+			  if(""==$.trim(ssurepsw)){
+				  alert("确认密码不能为空 ！ ")	;	
+				  return false;
+			  }
+			  
+			  if(""==$.trim(srealname)){
+				  alert("真实姓名不能为空 ！ ")	;	
+				  return false;
+			  }
+			  
+			  if(""==$.trim(semail)){
+				  alert("email不能为空 ！ ")	;	  
+				  return false;
+			  }
+			  if(""==$.trim(stel)){
+				  alert("电话不能为空 ！ ");	
+				  return false;
+			  }
+			  
+			  if("--请选择--"==$.trim(sVal)){
+				  alert("角色不能为空 ！");
+				  return false;
+			  }
+			  if(!semail.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){
+				   alert("邮箱格式不正确！请重新输入");
+				   return false;
+			  }
+			  
+			  if(spsw !=ssurepsw){
+				  alert("两次密码不一致 请重新输入 ！");
+				  return false;
+			  }
+			  if (!stel.match(/^(((13[0-9]{1})|159|153)+\d{8})$/)) { 
+				  alert("手机号格式不正确，请重新输入 ！");
+				  return false;
+			  }
+			  return true;
+		  }
+	</script>
+</body>
+</html>
+

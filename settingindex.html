@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="en">
+<!--[if IE 9 ]>
+<html  lang="en" class="ie9">
+<![endif]-->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="UTF-8">
+    <title>系统管理</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/generics.css">
+    <link rel="stylesheet" href="css/jedate.css">
+    <style>
+        .red{
+            color:red;
+        }
+        .inptime {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            height: 30px;
+            padding: 5px 10px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        .overflow {
+            overflow: hidden;
+            outline: none;
+            padding-top: 10px;
+        }
+        .cursor{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<header id="header" class="media">
+    <a href="" id="menu-toggle"></a>
+    <a class="logo pull-left" href="index.html"><img src="images/logo.png" alt="logo"></a>
+    <div class="media-body">
+        <div class="media" id="top-menu">
+            <div class="pull-left tm-icon">
+                <a data-drawer="messages" class="drawer-toggle" href="">
+                    <i class="sa-top-message"></i>
+                    <span>时间回溯</span>
+                </a>
+            </div>
+            <div class="pull-left tm-icon">
+                <a data-drawer="notifications" class="drawer-toggle" href="">
+                    <i class="sa-top-updates"></i>
+                    <span>帮助</span>
+                </a>
+            </div>
+            <div id="time" class="pull-right">
+                <span id="hours"></span>
+                :
+                <span id="min"></span>
+                :
+                <span id="sec"></span>
+            </div>
+            <div class="media-body">
+                <input type="text" class="main-search">
+            </div>
+        </div>
+    </div>
+</header>
+<div class="clearfix"></div>
+<section id="main" class="p-relative" role="main">
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <!-- Side Menu -->
+        <ul class="list-unstyled side-menu">
+            <li>
+                <a class="sa-side-home" href="index.html">
+                    <span class="menu-item">首页</span>
+                </a>
+            </li>
+            <li class="active">
+                <a class="sa-side-typography" href="settingindex.html">
+                    <span class="menu-item">系统管理</span>
+                </a>
+            </li>
+            <li>
+                <a class="sa-side-widget" href="settingindex2.html">
+                    <span class="menu-item">用户管理</span>
+                </a>
+            </li>
+            <li>
+                <a class="sa-side-table" href="settingindex3.html">
+                    <span class="menu-item">产品配置与管理</span>
+                </a>
+            </li>
+            <li>
+                <a class="sa-side-form" href="settingindex4.html">
+                    <span class="menu-item">常用工具管理</span>
+                </a>
+            </li>           
+        </ul>
+    </aside>
+    <!-- Content -->
+    <section id="content" class="container">
+        <!-- Messages Drawer时间回溯 -->
+        <div id="messages" class="tile drawer animated">
+            <div class="listview narrow">
+                <div class="media">
+                    <a href="javascript:void(0)">时间回溯</a>
+                    <span class="drawer-close">&times;</span>
+                </div>
+                <div class="overflow">
+                        <div class="col-md-1">
+                            <ul class="list-unstyled">
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);" class="todayTime">今天</a>
+                                </li>
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);" class="yesterdayTime">昨天</a>
+                                </li>
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);" class="preYesterDaytime">前天</a>
+                                </li>
+                              <!--  <li class="m-b-5">
+                                    <a href="javascript:void(0);">本周</a>
+                                </li>-->
+                            </ul>
+                        </div>
+              <!--          <div class="col-md-1">
+                            <ul class="list-unstyled">
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);" class="">上周</a>
+                                </li>
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);">本月</a>
+                                </li>
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);">上月</a>
+                                </li>
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);">今年</a>
+                                </li>
+                            </ul>
+                        </div>-->
+                        <div class="col-md-1">
+                            <ul class="list-unstyled">
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);" class="lastFifteenMin">最后15分钟</a>
+                                </li>
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);" class="lastThirtyMin">最后30分钟</a>
+                                </li>
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);" class="lastAnHou">最后1小时</a>
+                                </li>
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);" class="lastFourHou">最后4小时</a>
+                                </li>
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);" class="lastTwelveHou">最后12小时</a>
+                                </li>
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);"  class="lastTwentyfourHou">最后24小时</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-1">
+                            <ul class="list-unstyled">
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);" class="lastSevenDays">最后7天</a>
+                                </li>
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);" class="lastThirtyDays">最后30天</a>
+                                </li>
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);" class="lastSixtyDays">最后60天</a>
+                                </li>
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);" class="lastNinetyDays">最后90天</a>
+                                </li>
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);" class="lastSixMonth">最后6个月</a>
+                                </li>
+                                <li class="m-b-5">
+                                    <a href="javascript:void(0);" class="lastYear">最后1年</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="input-group datep">
+                                <label for="inpstart">开始时间：</label>
+                                <input class="datainp inptime" id="inpstart" type="text" size="50">
+                             </div>
+                             <div class="input-group datep" style="padding-top: 10px;">
+                                 <label for="inpend">结束时间：</label>
+                                 <input class="datainp inptime" id="inpend" type="text" size="50">
+                            </div>
+                            <button class="btn btn-sm m-t-10">确定</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <!-- Notification Drawer帮助 -->
+        <div id="notifications" class="tile drawer animated">
+            <div class="listview narrow">
+                <div class="media">
+                    <a href="">帮助</a>
+                    <span class="drawer-close">&times;</span>
+                </div>
+                <div class="overflow" style="height: 254px">
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Nadin Jackson - 2 Hours ago</small><br>
+                            <a class="t-overflow" href="javascript:void(0);">
+                                这是第一条信息
+                                Mauris consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus
+                            </a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">David Villa - 5 Hours ago</small><br>
+                            <a class="t-overflow" href="javascript:void(0);">
+                                Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra
+                            </a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/3.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Harris worgon - On 15/12/2013</small><br>
+                            <a class="t-overflow" href="javascript:void(0);">
+                                Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id
+                            </a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/4.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Mitch Bradberry - On 14/12/2013</small><br>
+                            <a class="t-overflow" href="javascript:void(0);">
+                                Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.
+                            </a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Nadin Jackson - On 15/12/2013</small><br>
+                            <a class="t-overflow" href="javascript:void(0);">
+                                Ipsum wintoo consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus
+                            </a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">David Villa - On 16/12/2013</small><br>
+                            <a class="t-overflow" href="javascript:void(0);">
+                                Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media text-center whiter l-100">
+                    <a href="javascript:void(0);"><small>查看所有</small></a>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb hidden-xs">
+            <li><a href="settingindex4.html">常用工具管理</a></li>
+            <li><a href="settingindex3.html">产品配置与管理</a></li>
+            <li><a href="settingindex2.html">用户管理</a></li>
+            <li class="active">系统管理</li>
+        </ol>
+        <h4 class="page-title">系统管理页面</h4>
+        <div class="block-area" id="input-masking">
+            <div class="row">
+                <div class="col-md-12 m-b-15">
+                    <h3 class="block-title">
+                        系统时间设置
+                    </h3>
+                    <div class="form-group datep">
+                        <label for="SystemTimeIng">当前系统时间：</label>
+                        <input  type="text" class="form-control input-sm datainp" id="SystemTimeIng"  readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="asyncFalseServerTime">时间同步服务器：</label>
+                        <input type="text" class="form-control input-sm" id="asyncFalseServerTime">
+                    </div>
+                    <button class="btn btn-sm m-t-10"  id="sameServer">确定</button>
+                    <span class="sameServer-span" style="position: relative;top: 5px; left: 22px;"></span>
+                    <hr class="whiter m-t-20">
+                </div>
+                <div class="col-md-12 m-b-15">
+                    <h3 class="block-title">
+                        生成授权文件
+                    </h3>
+                    <div class="form-group">
+                        <label for="nf-email2">用户名称：</label>
+                        <input type="text" class="form-control input-sm" id="nf-email2">
+                    </div>
+                    <div class="form-group">
+                        <label for="nf-password2">代理商名称：</label>
+                        <input type="text"  class="form-control input-sm" id="nf-password2">
+                    </div>
+                    <div class="form-group">
+                        <label for="nf-password3">联系人：</label>
+                        <input type="text"  class="form-control input-sm" id="nf-password3">
+                    </div>
+                    <div class="form-group">
+                        <label for="nf-password4">联系名称：</label>
+                        <input type="text"  class="form-control input-sm" id="nf-password4">
+                    </div>
+                    <button class="btn btn-sm m-t-10">确定</button>
+                    <hr class="whiter m-t-20">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 m-b-15">
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                        <input type="hidden" value="" name="">
+                            <span class="btn btn-file btn-sm btn-alt">
+                                <span class="fileupload-new">上传授权文件</span>
+                                <span class="fileupload-exists">选择其它文件</span>
+                                <input type="file" name="">
+                            </span>
+                        <span class="fileupload-preview"></span>
+                        <a href="#" class="close close-pic fileupload-exists" data-dismiss="fileupload">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                    <button class="btn btn-sm m-t-10">开始上传</button>
+                    <hr class="whiter m-t-20">
+                </div>
+                <div class="col-md-12 m-b-15">
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                        <input type="hidden" value="" name="">
+                            <span class="btn btn-file btn-sm btn-alt">
+                                <span class="fileupload-new">上传升级文件</span>
+                                <span class="fileupload-exists">选择其它文件</span>
+                                <input type="file" name="">
+                            </span>
+                        <span class="fileupload-preview"></span>
+                        <a href="#" class="close close-pic fileupload-exists" data-dismiss="fileupload">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                    <button class="btn btn-sm m-t-10">开始上传</button>
+                </div>
+                <hr class="whiter m-t-20">
+            </div>
+        </div>
+        <div class="block-area" id="defaultStyle">
+            <h3 class="block-title">系统厂商信息</h3>
+            <table class="table tile table-hover">
+                <thead>
+                <tr>
+                    <th>类别</th>
+                    <th>内容</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>用户名称</td>
+                    <td class="systd"></td>
+                </tr>
+                <tr>
+                    <td>代理商名称</td>
+                    <td class="systd"></td>
+                </tr>
+                <tr>
+                    <td>生产厂商</td>
+                    <td class="systd"></td>
+                </tr>
+                <tr>
+                    <td>技术服务电话</td>
+                    <td class="systd"></td>
+                </tr>
+                <tr>
+                    <td>产品型号</td>
+                    <td class="systd"></td>
+                </tr>
+                <tr>
+                    <td>系统版本</td>
+                    <td class="systd"></td>
+                </tr>
+                <tr>
+                    <td>许可证有效期</td>
+                    <td class="systd"></td>
+                </tr>
+                <tr>
+                    <td>网络监控</td>
+                    <td class="systd"></td>
+                </tr>
+                <tr>
+                    <td>应用监控</td>
+                    <td class="systd"></td>
+                </tr>
+                <tr>
+                    <td>交易监控</td>
+                    <td class="systd"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- Older IE Message -->
+    <!--[if lt IE 9]>
+    <div class="ie-block">
+        <h1 class="Ops">抱歉！</h1>
+        <p>您正在使用一个过时的Internet Explorer版本，升级到以下任何Web浏览器，以便访问该网站的最大功能。 </p>
+        <ul class="browsers">
+            <li>
+                <a href="http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html">
+                    <img src="img/browsers/chrome.png" alt="">
+                    <div>Google Chrome</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.firefox.com.cn/">
+                    <img src="img/browsers/firefox.png" alt="">
+                    <div>Mozilla Firefox</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.oupeng.com/download">
+                    <img src="img/browsers/opera.png" alt="">
+                    <div>Opera</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.apple.com/cn/safari/">
+                    <img src="img/browsers/safari.png" alt="">
+                    <div>Safari</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads">
+                    <img src="img/browsers/ie.png" alt="">
+                    <div>Internet Explorer(New)</div>
+                </a>
+            </li>
+        </ul>
+        <p>升级你的浏览器更安全和更快的网络体验。 <br/>感谢你的支持...</p>
+    </div>
+    <![endif]-->
+</section>
+</body>
+</html>
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script> <!-- jQuery Library -->
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/functions.js"></script>
+<script src="js/jquery.jedate.js"></script>
+<script src="js/fileupload.min.js"></script>
+<script src="js/changebgsave.js"></script>
+<script>
+    $(function(){
+        $("#SystemTimeIng").jeDate({
+            isinitVal:true,
+            ishmsVal:false,
+            format:"YYYY-MM-DD hh:mm:ss"
+        });
+        // 当前系统时间
+        $.ajax({
+            url:"/systemSet/readDateTimeSet.do",
+            type:"post",
+            data:"",
+            dataType:"json",
+            success:function(data){
+                $("#SystemTimeIng").val(data.nowTime);
+                $("#asyncFalseServerTime").val(data.sameServer);
+            }
+        });
+        //系统时间设置确定按钮
+        $("#sameServer").click(function(){
+            $("#sameServer").attr({"disabled":"disabled"});
+            var reg=/^\s+$/;//非空验证
+            if($("#SystemTimeIng").val()!=""
+                    &&!reg.test($("#SystemTimeIng").val())){
+                $.ajax({
+                    url:"/systemSet/operateDateTimeSet.do",
+                    type:"post",
+                    data:{
+                        "nowTime": $("#SystemTimeIng").val(),
+                        "sameServer":$("#asyncFalseServerTime").val()
+                    },
+                    dataType:"text",
+                    success:function(data){
+                        switch (data){
+                            case "success":
+                                $(".sameServer-span").text("提交成功").removeClass("red").show();
+                                setTimeout(function(){
+                                    $(".sameServer-span").hide();
+                                },1500);
+                                break;
+                            case "fail":
+                                $(".sameServer-span").text("程序异常").addClass("red").show();
+                                setTimeout(function(){
+                                    $(".sameServer-span").hide();
+                                },1500);
+                                break;
+                            case "nonExistent":
+                                $(".sameServer-span").text("输入的 时间同步服务器 不存在").addClass("red").show();
+                                setTimeout(function(){
+                                    $(".sameServer-span").hide();
+                                },1500);
+                                break
+                        }
+                        if(data){
+                            setTimeout(function(){
+                                $("#sameServer").removeAttr("disabled");
+                            },3000);
+                        }
+                    },
+                    error:function(er){
+                        console.log(er);
+                    }
+                });
+            }else {
+                $(".sameServer-span").text("请输入正确的时间格式").addClass("red").show();
+                setTimeout(function(){
+                    $(".sameServer-span").hide();
+                },1500);
+            }
+        });
+        // 系统厂商信息
+        $.ajax({
+            url:"/systemSet/readProductLicensSet.do",
+            type:"post",
+            data:"",
+            dataType:"json",
+            success:function(data){
+                var length = Object.keys(data[0]).length,
+                        dArry = Object.keys(data[0]);
+                for(var i=0;i<length;i++){
+                    $(".systd").eq(i).text(data[0][dArry[i]]);
+                }
+            }
+        });
+
+    });
+
+    //时间回溯功能
+    ~function(){
+        //实现日期选择联动
+        var start = {
+            format: 'YYYY-MM-DD hh:mm:ss',
+//            minDate: '2014-06-16 23:59:59', //设定最小日期为当前日期
+            //festival:true,
+            maxDate: $.nowDate({DD:0}), //最大日期
+            choosefun: function(elem,datas){
+                end.minDate = datas; //开始日选好后，重置结束日的最小日期
+                endDates();
+            }
+        };
+        var end = {
+            format: 'YYYY-MM-DD hh:mm:ss',
+            maxDate:$.nowDate({DD:0}), //最大日期
+            choosefun: function(elem,datas){
+                start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+            }
+        };
+        function endDates() {
+            end.trigger = false;
+            $("#inpend").jeDate(end);
+        }
+        $("#inpstart").jeDate(start);
+        $("#inpend").jeDate(end);
+        $(".todayTime").click(function(){
+            $.jeDate("#inpstart",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        DD:"-0"
+                    },'YYYY-MM-DD 00:00:00',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+            $.jeDate("#inpend",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss'
+            });
+            $(".jedatetodaymonth").click();
+        });
+        $(".yesterdayTime").click(function(){
+            $.jeDate("#inpstart",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        DD:"-1"
+                    },'YYYY-MM-DD 00:00:00',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+            $.jeDate("#inpend",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        DD:"-1"
+                    },'YYYY-MM-DD 23:59:59',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+        });
+        $(".preYesterDaytime").click(function(){
+            $.jeDate("#inpstart",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        DD:"-2"
+                    },'YYYY-MM-DD 00:00:00',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+            $.jeDate("#inpend",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        DD:"-2"
+                    },'YYYY-MM-DD 23:59:59',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+        });
+        $(".lastFifteenMin").click(function(){
+            $.jeDate("#inpstart",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        mm:"-15"
+                    },'YYYY-MM-DD hh:mm:ss',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+            $.jeDate("#inpend",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss'
+            });
+            $(".jedatetodaymonth").click();
+        });
+        $(".lastThirtyMin").click(function(){
+            $.jeDate("#inpstart",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        mm:"-30"
+                    },'YYYY-MM-DD hh:mm:ss',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+            $.jeDate("#inpend",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss'
+            });
+            $(".jedatetodaymonth").click();
+        });
+        $(".lastAnHou").click(function(){
+            $.jeDate("#inpstart",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        hh:"-1"
+                    },'YYYY-MM-DD hh:mm:ss',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+            $.jeDate("#inpend",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss'
+            });
+            $(".jedatetodaymonth").click();
+        });
+        $(".lastFourHou").click(function(){
+            $.jeDate("#inpstart",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        hh:"-4"
+                    },'YYYY-MM-DD hh:mm:ss',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+            $.jeDate("#inpend",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss'
+            });
+            $(".jedatetodaymonth").click();
+        });
+        $(".lastTwelveHou").click(function(){
+            $.jeDate("#inpstart",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        hh:"-12"
+                    },'YYYY-MM-DD hh:mm:ss',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+            $.jeDate("#inpend",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss'
+            });
+            $(".jedatetodaymonth").click();
+        });
+        $(".lastTwentyfourHou").click(function(){
+            $.jeDate("#inpstart",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        hh:"-24"
+                    },'YYYY-MM-DD hh:mm:ss',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+            $.jeDate("#inpend",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss'
+            });
+            $(".jedatetodaymonth").click();
+        });
+        $(".lastSevenDays").click(function(){
+            $.jeDate("#inpstart",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        DD:"-7"
+                    },'YYYY-MM-DD hh:mm:ss',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+            $.jeDate("#inpend",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss'
+            });
+            $(".jedatetodaymonth").click();
+        });
+        $(".lastThirtyDays").click(function(){
+            $.jeDate("#inpstart",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        DD:"-30"
+                    },'YYYY-MM-DD hh:mm:ss',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+            $.jeDate("#inpend",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss'
+            });
+            $(".jedatetodaymonth").click();
+        });
+        $(".lastSixtyDays").click(function(){
+            $.jeDate("#inpstart",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        DD:"-60"
+                    },'YYYY-MM-DD hh:mm:ss',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+            $.jeDate("#inpend",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss'
+            });
+            $(".jedatetodaymonth").click();
+        });
+        $(".lastNinetyDays").click(function(){
+            $.jeDate("#inpstart",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        DD:"-90"
+                    },'YYYY-MM-DD hh:mm:ss',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+            $.jeDate("#inpend",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss'
+            });
+            $(".jedatetodaymonth").click();
+        });
+        $(".lastSixMonth").click(function(){
+            $.jeDate("#inpstart",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        MM:"-6"
+                    },'YYYY-MM-DD hh:mm:ss',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+            $.jeDate("#inpend",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss'
+            });
+            $(".jedatetodaymonth").click();
+        });
+        $(".lastYear").click(function(){
+            $.jeDate("#inpstart",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss',
+                choosefun:function(elem, val, date) {
+                    elem.val($.nowDate({
+                        YYYY:"-1"
+                    },'YYYY-MM-DD hh:mm:ss',val));
+                }
+            });
+            $(".jedatetodaymonth").click();
+            $.jeDate("#inpend",{
+                trigger:false,
+                isTime:true,
+                isinitVal:true,
+                format: 'YYYY-MM-DD hh:mm:ss'
+            });
+            $(".jedatetodaymonth").click();
+        });
+    }();
+
+
+
+</script>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta http-equiv="X-UA-Compitable" content="IE=edge">
+    <title>首页</title>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+<div class="content">
+    <div class="header">
+        <div class="logout" data-toggle="modal" data-target="#logout">注销</div>
+	    <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" style="width: 20%;">
+				<div class="modal-content">
+					<div class="modal-header logout-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							温馨提示
+						</h4>
+					</div>
+					<div class="modal-body text-center">
+						您确定要退出系统吗？
+					</div>
+					<div class="modal-footer logout-footer">
+					    <button type="button" class="btn btn-primary logout-btn">
+							确定
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+					</div>
+				</div>
+			</div>
+	    </div>
+    </div>
+    <div class="mainbody">
+        <div class="main con">
+            <ul class="list1 " id="topTab">
+            </ul>
+            <ul class="list2 "  id="tab">
+            </ul>
+    	</div>
+    	<div class="more more1 con" >
+			<div class="more_left"
+				 style="position:absolute; top:24%; left:7%; width:50px; height:109px;"
+				 id="leftdiv">
+				<a href="#"></a>
+			</div>
+        </div>
+         <div class="more more2 con">
+			 <div class="spc" id="rightdiv"
+			 >
+				<a href="#"></a>
+			</div>
+		 </div>
+		<div class="footer w-100">
+			<div class="footer-width"></div>
+			<img class="img-responsive" src="images/slogin.png"/>
+			<div class="footer-width"></div>
+		</div>
+	</div>
+	<div class="logoindex">
+        <img src="images/logoindex.png" />
+    </div>
+</div>
+<div id="main" class="p-relative" role="main"></div>
+</body>
+</html>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/changeBackground.js"></script>
+<script src="js/changebgsave.js"></script>
+<script src="js/jsc.js"></script>
+<script src="js/index.js"></script>

@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<!--[if IE 9 ]>
+<html  lang="en" class="ie9">
+<![endif]-->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Violate Responsive Admin Template">
+    <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
+    <meta charset="UTF-8">
+    <title>流量管理与设置页面</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/generics.css">
+</head>
+<body>
+<header id="header" class="media">
+    <a href="" id="menu-toggle"></a>
+    <a class="logo pull-left" href="index.html">
+        <img src="images/logo.png" alt="logo">
+    </a>
+    <div class="media-body">
+        <div class="media" id="top-menu">
+            <div class="pull-left tm-icon">
+                <a data-drawer="messages" class="drawer-toggle" href="">
+                    <i class="sa-top-message"></i>
+                    <span>时间回溯</span>
+                </a>
+            </div>
+            <div class="pull-left tm-icon">
+                <a data-drawer="notifications" class="drawer-toggle" href="">
+                    <i class="sa-top-updates"></i>
+                    <span>帮助</span>
+                </a>
+            </div>
+            <div id="time" class="pull-right">
+                <span id="hours"></span>
+                :
+                <span id="min"></span>
+                :
+                <span id="sec"></span>
+            </div>
+            <div class="media-body">
+                <input type="text" class="main-search">
+            </div>
+        </div>
+    </div>
+</header>
+<div class="clearfix"></div>
+<section id="main" class="p-relative" role="main">
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <!-- Side Menu -->
+        <ul class="list-unstyled side-menu">
+            <li>
+                <a class="sa-side-home" href="index.html">
+                    <span class="menu-item">首页</span>
+                </a>
+            </li>
+            <li>
+                <a class="sa-side-sts" href="flowmanageSetting.html">
+                    <span class="menu-item">标准存储方案</span>
+                </a>
+            </li>
+            <li>
+                <a class="sa-side-ads" href="flowmanageSetting2.html">
+                    <span class="menu-item">高级存储方案</span>
+                </a>
+            </li>
+            <li class="active">
+                <a class="sa-side-his" href="flowmanageSetting3.html">
+                    <span class="menu-item">历史数据提取</span>
+                </a>
+            </li>
+            <li>
+                <a class="sa-side-data" href="flowmanageSetting4.html">
+                    <span class="menu-item">获取数据列表</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <!-- Content -->
+    <section id="content" class="container">
+        <!-- Messages Drawer时间回溯 -->
+        <div id="messages" class="tile drawer animated">
+            <div class="listview narrow">
+                <div class="media">
+                    <a href="">时间回溯</a>
+                    <span class="drawer-close">&times;</span>
+                </div>
+                <div class="overflow" style="height: 254px">
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Nadin Jackson - 2 Hours ago</small><br>
+                            <a class="t-overflow" href="">Mauris consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">David Villa - 5 Hours ago</small><br>
+                            <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/3.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Harris worgon - On 15/12/2013</small><br>
+                            <a class="t-overflow" href="">Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/4.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Mitch Bradberry - On 14/12/2013</small><br>
+                            <a class="t-overflow" href="">Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Nadin Jackson - On 15/12/2013</small><br>
+                            <a class="t-overflow" href="">Ipsum wintoo consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">David Villa - On 16/12/2013</small><br>
+                            <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/3.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Harris worgon - On 17/12/2013</small><br>
+                            <a class="t-overflow" href="">Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/4.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Mitch Bradberry - On 18/12/2013</small><br>
+                            <a class="t-overflow" href="">Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/5.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Wendy Mitchell - On 19/12/2013</small><br>
+                            <a class="t-overflow" href="">Integer a eros dapibus, vehicula quam accumsan, tincidunt purus</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media text-center whiter l-100">
+                    <a href=""><small>VIEW ALL</small></a>
+                </div>
+            </div>
+        </div>
+        <!-- Notification Drawer帮助 -->
+        <div id="notifications" class="tile drawer animated">
+            <div class="listview narrow">
+                <div class="media">
+                    <a href="">帮助</a>
+                    <span class="drawer-close">&times;</span>
+                </div>
+                <div class="overflow" style="height: 254px">
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Nadin Jackson - 2 Hours ago</small><br>
+                            <a class="t-overflow" href="">Mauris consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">David Villa - 5 Hours ago</small><br>
+                            <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/3.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Harris worgon - On 15/12/2013</small><br>
+                            <a class="t-overflow" href="">Maecenas venenatis enim condimentum ultrices fringilla. Nulla eget libero rhoncus, bibendum diam eleifend, vulputate mi. Fusce non nibh pulvinar, ornare turpis id</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/4.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Mitch Bradberry - On 14/12/2013</small><br>
+                            <a class="t-overflow" href="">Phasellus interdum felis enim, eu bibendum ipsum tristique vitae. Phasellus feugiat massa orci, sed viverra felis aliquet quis. Curabitur vel blandit odio. Vestibulum sagittis quis sem sit amet tristique.</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">Nadin Jackson - On 15/12/2013</small><br>
+                            <a class="t-overflow" href="">Ipsum wintoo consectetur urna nec tempor adipiscing. Proin sit amet nisi ligula. Sed eu adipiscing lectus</a>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted">David Villa - On 16/12/2013</small><br>
+                            <a class="t-overflow" href="">Suspendisse in purus ut nibh placerat Cras pulvinar euismod nunc quis gravida. Suspendisse pharetra</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media text-center whiter l-100">
+                    <a href=""><small>VIEW ALL</small></a>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb hidden-xs">
+            <li><a href="flowmanageSetting4.html">获取数据列表</a></li>
+            <li class="active">历史数据提取</li>
+            <li><a href="flowmanageSetting2.html">高级存储方案</a></li>
+            <li><a href="flowmanageSetting.html">标准存储方案</a></li>
+        </ol>
+        <h4 class="page-title">历史数据提取页面</h4>
+        <div class="block-area" id="input-masking">
+            <div class="row">
+                <div class="col-md-12 m-b-15">
+                    <h3 class="block-title">
+                        历史数据提取
+                    </h3>
+                    <div class="form-group">
+                        <label for="wangka">选择网卡</label>
+                        <input type="checkbox" id="wangka">
+                    </div>
+                    <div class="form-group">
+                        <label for="maskByte">BPF过滤条件：</label>
+                        <input type="text"  class="form-control input-sm" id="maskByte"  placeholder="掩码位数">
+                    </div>
+                    <div class="form-group">
+                        <label for="defaultGateway">IP：</label>
+                        <input type="text"  class="form-control input-sm" id="defaultGateway"  placeholder="默认网关">
+                    </div>
+                    <div class="form-group">
+                        <label for="startTime">开始时间：</label>
+                        <input type="text"  class="form-control input-sm" id="startTime"  placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="endTime">结束时间：</label>
+                        <input type="text"  class="form-control input-sm" id="endTime"  placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="flowPort">端口：</label>
+                        <input type="text" class="form-control input-sm" id="flowPort" placeholder="端口">
+                    </div>
+                    <div class="form-group m-b-15">
+                        <span>选择协议:</span>
+                        <select class="select">
+                            <option>Country</option>
+                            <option>Japan</option>
+                            <option>Korea</option>
+                            <option>China</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <span>是否启用:</span>
+                        <label class="checkbox-inline">
+                            <input type="radio" name="radio" checked="checked">是
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" name="radio">否
+                        </label>
+                    </div>
+                    <button class="btn btn-sm m-t-10">iDegger在线解析</button>
+                    <button class="btn btn-sm m-t-10">下载到本地</button>
+                    <button class="btn btn-sm m-t-10 pull-right">确定</button>
+                    <hr class="whiter m-t-20">
+                </div>
+            </div>
+         </div>
+    </section>
+    <!-- Older IE Message -->
+    <!--[if lt IE 9]>
+    <div class="ie-block">
+        <h1 class="Ops">抱歉！</h1>
+        <p>您正在使用一个过时的Internet Explorer版本，升级到以下任何Web浏览器，以便访问该网站的最大功能。 </p>
+        <ul class="browsers">
+            <li>
+                <a href="http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html">
+                    <img src="img/browsers/chrome.png" alt="">
+                    <div>Google Chrome</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.firefox.com.cn/">
+                    <img src="img/browsers/firefox.png" alt="">
+                    <div>Mozilla Firefox</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.oupeng.com/download">
+                    <img src="img/browsers/opera.png" alt="">
+                    <div>Opera</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.apple.com/cn/safari/">
+                    <img src="img/browsers/safari.png" alt="">
+                    <div>Safari</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads">
+                    <img src="img/browsers/ie.png" alt="">
+                    <div>Internet Explorer(New)</div>
+                </a>
+            </li>
+        </ul>
+        <p>升级你的浏览器更安全和更快的网络体验。 <br/>感谢你的支持...</p>
+    </div>
+    <![endif]-->
+</section>
+</body>
+</html>
+<!-- Javascript Libraries -->
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script> <!-- jQuery Library -->
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/select.min.js"></script> <!-- Custom Select -->
+<script src="js/icheck.js"></script> <!-- Custom Checkbox + Radio -->
+<!-- All JS functions -->
+<script src="js/functions.js"></script>
+<script src="js/changebgsave.js"></script>
+
+
