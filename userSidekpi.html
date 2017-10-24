@@ -9,18 +9,18 @@
     <meta charset="UTF-8">
     <title>用户端KPI</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/form.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="customcss/style.css">
     <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/generics.css">
-    <link rel="stylesheet" href="css/bstable/bootstrap-table.css">
-    <link rel="stylesheet" href="css/bstable/bootstrap-table-self.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-table.css">
+    <link rel="stylesheet" href="customcss/bootstrap-table-self.css">
 </head>
 <body>
-<header id="header" class="media">
+<header id="header" class="navbar navbar-fixed-top">
     <a href="" id="menu-toggle"></a>
     <a class="logo pull-left" href="index.html">
         <img src="images/logo.png" alt="logo">
@@ -55,7 +55,7 @@
 <div class="clearfix"></div>
 <section id="main" class="p-relative" role="main">
     <!-- Sidebar -->
-    <aside id="sidebar">
+    <aside id="sidebar" class="navbar navbar-fixed-top">
         <!-- Side Menu -->
         <ul class="list-unstyled side-menu">
             <li>
@@ -232,31 +232,140 @@
         </div>
         <!-- Breadcrumb -->
         <div class="block-area">
-       <!--     <div class="table-responsive overflow">
-                <table id="table7">
-                </table>
-            </div>-->
-            <div class="table-responsive overflow">
-                <div id="guanchapoint">
-                    <span class="block-title" style="padding:0px 10px 0px;">观察点KPI</span>
+            <div class="table-responsive overflow tableMinH">
+                <span class="block-title blockHead cursor">
+                    观察点KPI
+                    <i class="glyphicon glyphicon-minus"></i>
+                </span>
+                <div class="togglebox">
+                    <table id="table7">
+                    </table>
                 </div>
-                <table id="table7">
-                </table>
             </div>
-            <div class="table-responsive overflow m-t-15">
-                <div id="userduan">
-                    <span class="block-title" style="padding:0px 10px 0px;">用户端KPI</span>
+            <div class="table-responsive overflow tableMinH">
+                <span class="block-title blockHead cursor">
+                    用户端KPI
+                    <i class="glyphicon glyphicon-minus"></i>
+                </span>
+                <div class="togglebox">
+                    <table id="userSidekpi"></table>
                 </div>
-                <table id="userSidekpi"></table>
-                <hr class="whiter m-t-20">
             </div>
-            <div class="table-responsive overflow">
-                <div id="serverduan">
-                    <span class="block-title" style="padding:0px 10px 0px;">服务端KPI</span>
+            <div class="table-responsive overflow tableMinH">
+                <span class="block-title blockHead cursor">服务端KPI
+                    <i class="glyphicon glyphicon-minus"></i>
+                </span>
+                <div class="togglebox">
+                    <table id="serverSidekpi"></table>
                 </div>
-                <table id="serverSidekpi"></table>
             </div>
         </div>
+        <div class="block-area">
+				<div class="drawpos" style="margin-left: -10px; margin-right: -10px;">
+					<div class="pointline">
+						<div class="modal fade in" id="addNew-event" tabindex="-1"
+							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content" style="background: #000;">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+										<h4 class="modal-title" id="myModalLabel">选择日期</h4>
+									</div>
+									<div class="modal-body">
+										<div class="form-horizontal">
+											<div class="form-group">
+												<label for="historyTime" class="col-md-2 control-label">
+													历史时间段: </label>
+												<div class="col-md-9">
+													<select class="form-control" id="historyTime"
+														style="background: rgba(0, 0, 0, 0.0);">
+														<option>10分钟</option>
+														<option>30分钟</option>
+														<option>1小时</option>
+														<option>2小时</option>
+														<option>4小时</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group">
+												<lable for="lineTimejg" class="col-md-2 control-label">线图点间隔:</lable>
+												<div class="col-md-9">
+													<select class="form-control" id="lineTimejg"
+														style="background: rgba(0, 0, 0, 0.0);">
+														<option>10秒</option>
+														<option>1分钟</option>
+														<option>10分钟</option>
+														<option>1小时</option>
+														<option>1天</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group">
+												<lable class="col-md-2 control-label">开始时间:</lable>
+												<div class="col-md-9">
+													<input type="text"
+														class="form-control input-sm workinput wicon"
+														id="modalStarTime" readonly>
+												</div>
+											</div>
+											<div class="form-group">
+												<lable class="col-md-2 control-label">结束时间:</lable>
+												<div class="col-md-9">
+													<input type="text" class="form-control input-sm"
+														id="modalEndtime" readonly>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">关闭</button>
+										<button type="button" class="btn btn-primary"
+											data-dismiss="modal" id="subTimemodal"
+											style="margin-right: 40px;">提交更改</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="linedraw" onselectstart="return false;" style="user-select:none;height: 32.2rem; position: relative;margin-left: 2px;margin-right:3px;margin-top:10px;">
+							<img src="../images/append.png" style="padding-top: 8em;"
+								id="list-draw" class="center-block" data-toggle="modal"
+								data-target="#listDraw">
+
+
+
+
+							<div class="modal fade" id="listDraw" tabindex="-1" role="dialog"
+								aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal"
+												aria-hidden="true">&times;</button>
+											<h4 class="modal-title" id="myModalLabel2">绘图列表</h4>
+										</div>
+										<div class="modal-body" style="padding: 0px;">
+											<div class="list-content">
+
+                                            </div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">关闭</button>
+											<button type="button" class="btn btn-primary" id="list-save"
+												style="margin-right: 10%;">确定</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+        
     </section>
     <!-- Older IE Message -->
     <!--[if lt IE 9]>
@@ -302,186 +411,209 @@
 </body>
 </html>
 <!-- jQuery -->
-<script src="js/jquery.min.js"></script> <!-- jQuery Library -->
+<script src="js/jQuery/jquery.min.js"></script> <!-- jQuery Library -->
 <!-- Bootstrap -->
-<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
 <!-- Bootstrap-table -->
-<script src="js/bstable/bootstrap-table.js"></script>
-<script src="js/bstable/bootstrap-table-zh-CN.js"></script>
+<script src="js/bootstrap/bootstrap-table.js"></script>
+<script src="js/bootstrap/bootstrap-table-zh-CN.js"></script>
+<script src="js/bootstrap/bootstrap-table-export.js"></script>
+<script src="js/bootstrap/tableExport.js"></script>
 <script src="js/functions.js"></script>
-<script src="js/changebgsave.js"></script>
-<script src="js/sidebar.js"></script>
+<script src="customjs/changeBackground.js"></script>
+<script src="customjs/sidebar.js"></script>
+<script src="js/echarts/echarts.min.js"></script>
+<script src="js/echarts/theme/macarons.js"></script>
+<script src="customjs/echartUtil/data.format.js"></script>
+<script src="customjs/echartUtil/echart.util.js"></script>
+<script src="customjs/draw.js"></script>
+<script src="customjs/bsTable/kpitable.js"></script>
 <script>
     $(function(){
         var selectRow = window.location.href.split("?")[1].split("&")[0].split("=")[1]-0,
                 selectDataId = window.location.href.split("?")[1].split("&")[1].split("=")[1]-0;
-        var obPointkpi = {
-            clickTableRow:function(tableName,rowId,element,appBusinessId){
-                var watchPointId;
-                if(!$("#table7 .tabRowClickbg").attr("data-id")){
-                    $.ajax({
-                        url:"/commonController/getNpmListRrdData.do",
-                        type:"post",
-                        async:false,
-                        data:{"moduleId":10},
-                        dataType:"json",
-                        success:function(data){
-                            watchPointId = data[0].id;
-                        }
-                    })
-                }else {
-                    watchPointId = $("#table7 .tabRowClickbg").attr("data-id")
-                }
-                function updataUser(moduleId,url,watchPointId,appBusinessId){
-                    $("#userSidekpi").bootstrapTable("showLoading");
-                    $(".fixed-table-loading").css("line-height",$(".fixed-table-loading").height()+"px");
-                    $.ajax({
-                        url:url,
-                        type:"post",
-                        data:{
-                            "moduleId":moduleId,
-                            "watchPointId":watchPointId,
-                            "appBusinessId":appBusinessId,
-                            "starttime":1505892630,
-                            "endtime":1505960881
-                        },
-                        dataType:"json",
-                        success:function(data){
-                            $("#userSidekpi").bootstrapTable("hideLoading");
-                            $("#userSidekpi").bootstrapTable("load",data);
-                        }
-                    });
-                }
-                function updataServer(moduleId,url,watchPointId,appBusinessId){
-                    $("#serverSidekpi").bootstrapTable("showLoading");
-                    $(".fixed-table-loading").css("line-height",$(".fixed-table-loading").height()+"px");
-                    $.ajax({
-                        url:url,
-                        type:"post",
-                        data:{
-                            "moduleId":moduleId,
-                            "watchPointId":watchPointId,
-                            "appBusinessId":appBusinessId,
-                            "starttime":1505892630,
-                            "endtime":1505960881
-                        },
-                        dataType:"json",
-                        success:function(data){
-                            $("#serverSidekpi").bootstrapTable("hideLoading");
-                            $("#serverSidekpi").bootstrapTable("load",data);
-                        }
-                    })
-                }
-                switch (tableName){
-                    case "userSidekpi":
-                        $("#"+tableName+" .tabRowClickbg").removeClass("tabRowClickbg");
-                        $(element).addClass("tabRowClickbg");
-                        updataServer(11,
-                                "/commonController/getNpmListRrdDataBySubPath.do",
-                                watchPointId,
-                                appBusinessId);
-                        break;
-                    case "serverSidekpi":
-                        $("#"+tableName+" .tabRowClickbg").removeClass("tabRowClickbg");
-                        $(element).addClass("tabRowClickbg");
-                        updataUser(12,
-                                "/commonController/getNpmListRrdDataBySubPath.do",
-                                watchPointId,
-                                appBusinessId);
-                        break;
-                    default:
-                        $(".tabRowClickbg").removeClass("tabRowClickbg").removeAttr("data-id");
-                        $(element).addClass("tabRowClickbg").attr("data-id",rowId);
-                        updataUser(11,
-                                "commonController/getNpmListRrdData.do",
-                                rowId
-                        );
-                        updataServer(12,
-                                "commonController/getNpmListRrdData.do",
-                                rowId
-                        );
-                        break;
-                }
-            },
-            modulkpi:function(userColumnurl,toolbartem,modolkpiurl,tableId,watchPointId,moduleId,starttime,endtime){
-                $.ajax({
-                    url:userColumnurl,
-                    type:"post",
-                    data:"",
-                    dataType:"json",
-                    success:function(data){
-                        var columnsArry = [];
-                        data.forEach(function(title){
-                            if(title.columnen!="id"){
-                                var colObjet = {
-                                    field:title.columnen,
-                                    title:title.columnzh+"<span data-columnId='"+title.id+"'></span>",
-                                    sortable:true,
-                                    visible:title.checked
-                                };
-                                columnsArry.push(colObjet);
-                            }
-                        });
-                        $(tableId).bootstrapTable({
-                            url:modolkpiurl,
-                            queryParams:function(params){
-                                return {
-                                    "moduleId":moduleId,
-                                    "watchPointId":watchPointId,
-                                    "starttime":starttime,
-                                    "endtime":endtime
-                                }
-                            },
-                            toggle:"table",
-                            toolbar:toolbartem,
-                            pagination:true,
-                            showColumns:true,
-                            columns:columnsArry,
-                            onClickRow:function(e,row){
-                                if(tableId=="#table7"){
-                                    obPointkpi.clickTableRow(null,e.id,row);
-                                }else if(tableId=="#userSidekpi"){
-                                    obPointkpi.clickTableRow("userSidekpi",
-                                            null,
-                                            row,
-                                            e.id);
-                                }
-                            }
-                        });
-                    }
-                });
-            },
-            clickColumn:function(thisElm,userColumnurl,userColumnUpurl,moduleId){
-                thisElm.siblings(".dropdown-menu").find("input[type='checkbox']").on("click",function(){
-                    if($(this).attr("checked")){
-                        $(this).attr("checked",false);
+
+
+        function temp(){
+            var obPointkpi = {
+                clickTableRow:function(tableName,rowId,element,appBusinessId){
+                    var watchPointId;
+                    if(!$("#table7 .tabRowClickbg").attr("data-id")){
                         $.ajax({
-                            url:"userConfigure/unCheckedUserListColumn.do",
+                            url:"/commonController/getNpmListRrdData.do",
                             type:"post",
-                            data:{
-                                columnId:$(this).siblings("span").attr("data-columnId")
-                            },
-                            dataType:"text",
+                            async:false,
+                            data:{"moduleId":10},
+                            dataType:"json",
                             success:function(data){
+                                watchPointId = data[0].id;
                             }
                         })
                     }else {
-                        $(this).attr("checked",true);
+                        watchPointId = $("#table7 .tabRowClickbg").attr("data-id")
+                    }
+                    function updataUser(moduleId,url,watchPointId,appBusinessId){
+                        $("#userSidekpi").bootstrapTable("showLoading");
+                        $(".fixed-table-loading").css("line-height",$(".fixed-table-loading").height()+"px");
                         $.ajax({
-                            url:"userConfigure/checkedUserListColumn.do",
+                            url:url,
                             type:"post",
                             data:{
-                                columnId:$(this).siblings("span").attr("data-columnId")
+                                "moduleId":moduleId,
+                                "watchPointId":watchPointId,
+                                "appBusinessId":appBusinessId,
+                                "starttime":1505892630,
+                                "endtime":1505960881
                             },
-                            dataType:"text",
+                            dataType:"json",
                             success:function(data){
+                                $("#userSidekpi").bootstrapTable("hideLoading");
+                                $("#userSidekpi").bootstrapTable("load",data);
+                            }
+                        });
+                    }
+                    function updataServer(moduleId,url,watchPointId,appBusinessId){
+                        $("#serverSidekpi").bootstrapTable("showLoading");
+                        $(".fixed-table-loading").css("line-height",$(".fixed-table-loading").height()+"px");
+                        $.ajax({
+                            url:url,
+                            type:"post",
+                            data:{
+                                "moduleId":moduleId,
+                                "watchPointId":watchPointId,
+                                "appBusinessId":appBusinessId,
+                                "starttime":1505892630,
+                                "endtime":1505960881
+                            },
+                            dataType:"json",
+                            success:function(data){
+                                $("#serverSidekpi").bootstrapTable("hideLoading");
+                                $("#serverSidekpi").bootstrapTable("load",data);
                             }
                         })
                     }
-                });
-            }
-        };
+                    switch (tableName){
+                        case "userSidekpi":
+                            $("#"+tableName+" .tabRowClickbg").removeClass("tabRowClickbg");
+                            $(element).addClass("tabRowClickbg");
+                            updataServer(11,
+                                    "/commonController/getNpmListRrdDataBySubPath.do",
+                                    watchPointId,
+                                    appBusinessId);
+                            break;
+                        case "serverSidekpi":
+                            $("#"+tableName+" .tabRowClickbg").removeClass("tabRowClickbg");
+                            $(element).addClass("tabRowClickbg");
+                            updataUser(12,
+                                    "/commonController/getNpmListRrdDataBySubPath.do",
+                                    watchPointId,
+                                    appBusinessId);
+                            break;
+                        default:
+                            $(".tabRowClickbg").removeClass("tabRowClickbg").removeAttr("data-id");
+                            $(element).addClass("tabRowClickbg").attr("data-id",rowId);
+                            updataUser(11,
+                                    "commonController/getNpmListRrdData.do",
+                                    rowId
+                            );
+                            updataServer(12,
+                                    "commonController/getNpmListRrdData.do",
+                                    rowId
+                            );
+                            break;
+                    }
+                },
+                modulkpi:function(userColumnurl,modolkpiurl,tableId,ajaxData){
+                    $.ajax({
+                        url:userColumnurl,
+                        type:"post",
+                        data:"",
+                        dataType:"json",
+                        success:function(data){
+                            var columnsArry = [];
+                            data.forEach(function(title){
+                                if(title.columnen!="id"){
+                                    var colObjet = {
+                                        field:title.columnen,
+                                        title:title.columnzh+"<span data-columnId='"+title.id+"'></span>",
+                                        sortable:true,
+                                        visible:title.checked
+                                    };
+                                    columnsArry.push(colObjet);
+                                }
+                            });
+                            $(tableId).bootstrapTable({
+                                url:modolkpiurl,
+                                queryParams:function(params){
+                                    return ajaxData;
+                                },
+                                toggle:"table",
+                                pagination:true,
+                                showColumns:true,
+                                showExport:true,
+                                search:true,
+                                columns:columnsArry,
+                                onClickRow:function(data,rowElement){
+                                    if(tableId=="#table7"){
+                                        obPointkpi.clickTableRow(null,data.id,rowElement);
+                                    }else if(tableId=="#userSidekpi"){
+                                        obPointkpi.clickTableRow("userSidekpi", null,rowElement,data.id);
+                                        selectDataId = data.id;
+                                        _chart._createChart(11,selectDataId);
+                                    }
+                                },
+                                onColumnSwitch:function(field,checked){
+                                    $.ajax({
+                                        url:userColumnurl,
+                                        type:"post",
+                                        data:"",
+                                        dataType:"json",
+                                        success:function(culumnData){
+                                            culumnData.forEach(function(item,index){
+                                                if(item.columnen==field){
+                                                    $.ajax({
+                                                        url:checked?"userConfigure/checkedUserListColumn.do":
+                                                                "userConfigure/unCheckedUserListColumn.do",
+                                                        type:"post",
+                                                        data:{columnId:item.id},
+                                                        dataType:"text",
+                                                        success:function(data){
+                                                        }
+                                                    })
+                                                }
+                                            })
+                                        }
+                                    })
+                                },
+                                rowStyle:function(row,index){
+                                    if(tableId=="#table7"){
+                                        if(index==0){
+                                            return {classes:"tabRowClickbg"}
+                                        }
+                                    }
+                                    if(tableId=="#userSidekpi"){
+                                        if(index==selectRow){
+                                            return {classes:"tabRowClickbg"}
+                                        }
+                                    }
+                                    return "";
+                                },
+                                onLoadSuccess:function(data){
+                                    if(selectRow>9){
+                                        $("#userSidekpi").bootstrapTable('selectPage', Math.ceil((selectRow+1)/10));
+                                    }
+                                }
+                            });
+                        }
+                    });
+                }
+            };
+        }
+
+
         /*-------用户刚刚进入此页面时触发的事件------------------*/
+//        ,watchPointId,moduleId,starttime,endtime
+
         $.ajax({
             url:"/commonController/getNpmListRrdData.do",
             type:"post",
@@ -491,64 +623,45 @@
             dataType:"json",
             success:function(data){
                 obPointkpi.modulkpi("/watchpointController/getWatchpointUserListColumn.do",
-                        "#guanchapoint",
                         "/commonController/getNpmListRrdData.do",
                         "#table7",
-                        null,
-                        10);//观察点
-
+                        {
+                            "watchPointId":data[0].id,
+                            "moduleId":10,
+                            "starttime":1505892630,
+                            "endtime":1505960881
+                        },selectRow,selectDataId,1);//观察点
                 obPointkpi.modulkpi("/client/getClientUserListColumn.do",
-                        "#userduan",
                         "/commonController/getNpmListRrdData.do",
                         "#userSidekpi",
-                        data[0].id,
-                        11,
-                        1505892630,
-                        1505960881,
-                        1
-                );//用户端
+                        {
+                            "watchPointId":data[0].id,
+                            "moduleId":11,
+                            "starttime":1505892630,
+                            "endtime":1505960881
+                        },selectRow,selectDataId,1);//用户端
                 obPointkpi.modulkpi("/serverManagement/getServerSideUserListColumn.do",
-                        "#serverduan",
                         "/commonController/getNpmListRrdData.do",
                         "#serverSidekpi",
-                        data[0].id,
-                        12,
-                        1505892630,
-                        1505960881,
-                        1
-                );//服务端
-                setTimeout(function(){
-                    $("#table7 tbody tr").eq(0).addClass("tabRowClickbg");
-                    if(selectRow>9){
-                        $("#userSidekpi").bootstrapTable('selectPage', Math.ceil((selectRow-0+1)/10));
-                        $("#userSidekpi tbody tr").each(function(index,element){
-                            if($(element).attr("data-index")==selectRow){
-                                $(element).addClass("tabRowClickbg");
-                            }
-                        })
-                    }else {
-                        $("#userSidekpi tbody tr").eq(selectRow).addClass("tabRowClickbg");
-                    }
-                },600)
+                        {
+                            "watchPointId":data[0].id,
+                            "moduleId":12,
+                            "starttime":1505892630,
+                            "endtime":1505960881
+                        },selectRow,selectDataId,1);//服务端
             }
         });
-        /*-------------用户操作列的消失隐藏--------------------------*/
-        $(document).one('click','button[data-toggle="dropdown"]',function(){
-            if($(this).attr("aria-label")=="columns"){
-                var idWord = $(this).parents(".columns").prev(".bs-bars").children("div").attr("id"),
-                        thisElm = $(this);
-                switch (idWord){
-                    case "guanchapoint":
-                        obPointkpi.clickColumn(thisElm);
-                        break;
-                    case "userduan":
-                        obPointkpi.clickColumn(thisElm);
-                        break;
-                    case "serverduan":
-                        obPointkpi.clickColumn(thisElm);
-                        break;
-                }
-            }
+
+        _chart._createChart(11,selectDataId);
+        $("#list-draw").off("click").on("click",function(){
+            _chart._kpiSelectM(11);
         });
+        $("#list-save").click(function(){
+            _chart._saveJson(11,selectDataId);
+        });
+        $(window).resize(function(){
+            _chart._resizChart();
+        });
+
     });
 </script>

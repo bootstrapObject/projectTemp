@@ -4,29 +4,29 @@
 <html  lang="en" class="ie9">
 <![endif]-->
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-<meta name="format-detection" content="telephone=no">
-<meta charset="UTF-8">
-<title>观察点KPI</title>
-<!-- CSS -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/animate.min.css">
-<link rel="stylesheet" href="css/font-awesome.min.css">
-<link rel="stylesheet" href="css/form.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/icons.css">
-<link rel="stylesheet" href="css/generics.css">
-<link rel="stylesheet" href="css/bstable/bootstrap-table.css">
-<link rel="stylesheet" href="css/bstable/bootstrap-table-self.css">
-<link rel="stylesheet" href="css/jedate.css">
-<style>
-.linedraw {
-	background: rgba(0, 0, 0, 0.22);
-}
-</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<meta name="format-detection" content="telephone=no">
+	<meta charset="UTF-8">
+	<title>观察点KPI</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/form.css">
+	<link rel="stylesheet" href="customcss/style.css">
+	<link rel="stylesheet" href="css/icons.css">
+	<link rel="stylesheet" href="css/generics.css">
+	<link rel="stylesheet" href="css/bootstrap/bootstrap-table.css">
+	<link rel="stylesheet" href="customcss/bootstrap-table-self.css">
+<!--	<link rel="stylesheet" href="css/jedate/jedate.css">-->
+	<style>
+		.linedraw {
+			background: rgba(0, 0, 0, 0.22);
+		}
+	</style>
 </head>
 <body>
-	<header id="header" class="media">
+	<header id="header" class="navbar navbar-fixed-top">
 		<a href="" id="menu-toggle"></a>
 		<a class="logo pull-left" 	href="index.html">
 			<img src="images/logo.png" alt="logo">
@@ -54,10 +54,9 @@
 			</div>
 		</div>
 	</header>
-	<div class="clearfix"></div>
-	<section id="main" class="p-relative" role="main">
+	<section id="main" class="container">
 		<!-- Sidebar -->
-		<aside id="sidebar">
+		<aside id="sidebar" class="navbar navbar-fixed-top">
 			<!-- Side Menu -->
 			<ul class="list-unstyled side-menu">
 				<li>
@@ -270,30 +269,40 @@
 			</div>
 			<!-- Breadcrumb -->
 			<div class="block-area">
-				<div class="table-responsive overflow">
-					<div id="guanchapoint">
-						<span class="block-title" style="padding: 0px 10px 0px;">观察点KPI</span>
+				<div class="table-responsive overflow tableMinH">
+					<span class="block-title blockHead cursor">
+						观察点KPI
+						<!--<i class="glyphicon glyphicon-arrow-down"></i>-->
+						<i class="glyphicon glyphicon-minus"></i>
+					</span>
+					<div class="togglebox">
+						<table id="table7">
+						</table>
 					</div>
-					<table id="table7">
-					</table>
-					<hr class="whiter m-t-20">
 				</div>
-				<div class="table-responsive overflow  m-b-20">
-					<div id="userduan">
-						<span class="block-title" style="padding: 0px 10px 0px;">用户端KPI</span>
+				<div class="table-responsive overflow tableMinH">
+					<span class="block-title blockHead cursor">
+						用户端KPI
+						<i class="glyphicon glyphicon-minus"></i>
+					</span>
+					<div class="togglebox">
+						<table id="userSidekpi"></table>
 					</div>
-					<table id="userSidekpi"></table>
 				</div>
-				<div class="table-responsive overflow">
-					<div id="serverduan">
-						<span class="block-title" style="padding: 0px 10px 0px;">服务端KPI</span>
+				<div class="table-responsive overflow tableMinH">
+					<span class="block-title blockHead cursor">服务端KPI
+						<i class="glyphicon glyphicon-minus"></i>
+					</span>
+					<div class="togglebox">
+						<table id="serverSidekpi"></table>
 					</div>
-					<table id="serverSidekpi"></table>
 				</div>
 			</div>
 			<div class="block-area">
-				<div class="drawpos" style="margin-left:-10px;margin-right: -20px;">
+				<div class="drawpos" style="margin-left:-10px;margin-right: -10px;">
 					<div class="pointline">
+
+
 						<div class="modal fade in" id="addNew-event" tabindex="-1"
 							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
@@ -359,14 +368,18 @@
 								</div>
 							</div>
 						</div>
+
+
 					</div>
 					<div class="col-md-6">
-						<div class="linedraw" style="height: 32.2rem; position: relative;margin-left: 2px;margin-right: 8px;margin-top:10px;">
+
+						<div class="linedraw" onselectstart="return false;" style="user-select:none;height: 32.2rem; position: relative;margin-left: 2px;margin-right:3px;margin-top:10px;">
 							<img src="../images/append.png" style="padding-top: 8em;"
 								id="list-draw" class="center-block" data-toggle="modal"
 								data-target="#listDraw">
+
 							<div class="modal fade" id="listDraw" tabindex="-1" role="dialog"
-								aria-labelledby="myModalLabel" aria-hidden="true">
+								aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
@@ -374,7 +387,7 @@
 												aria-hidden="true">&times;</button>
 											<h4 class="modal-title" id="myModalLabel2">绘图列表</h4>
 										</div>
-										<div class="modal-body" style="height: 300px; padding: 0px;">
+										<div class="modal-body" style="padding: 0px;">
 											<div class="list-content"></div>
 										</div>
 										<div class="modal-footer">
@@ -386,6 +399,7 @@
 									</div>
 								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>
@@ -432,418 +446,310 @@
     </div>
     <![endif]-->
 	</section>
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Library -->
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Bootstrap-table -->
-	<script src="js/bstable/bootstrap-table.js"></script>
-	<script src="js/bstable/bootstrap-table-zh-CN.js"></script>
-	<script src="js/functions.js"></script>
-	<script src="js/changebgsave.js"></script>
-	<script src="js/sidebar.js"></script>
-	<script src="js/jquery.jedate.js"></script>
-	<script src="js/echarts/echarts.min.js"></script>
-	<script src="js/echarts/theme/macarons.js"></script>
-	<script src="customjs/echartUtil/data.format.js"></script>
-	<script src="customjs/echartUtil/echart.util.js"></script>
-
-	<script>
-    $(function(){
-		var selectRow = window.location.href.split("?")[1].split("&")[0].split("=")[1]-0,
-			selectDataId = window.location.href.split("?")[1].split("&")[1].split("=")[1]-0;
-        var obPointkpi = {
-            clickTableRow:function(row,element){
-                $(".tabRowClickbg").removeClass("tabRowClickbg");
-                $(element).addClass("tabRowClickbg");
-				$("#userSidekpi").bootstrapTable("showLoading");
-				$("#serverSidekpi").bootstrapTable("showLoading");
-				$(".fixed-table-loading").css("line-height",$(".fixed-table-loading").height()+"px");
-                $.ajax({
-                    url:"commonController/getNpmListRrdData.do",
-                    type:"post",
-                    data:{
-                        "moduleId":11,
-                        "watchPointId":row.id,
-                        "starttime":1505892630,
-                        "endtime":1505960881
-                    },
-                    dataType:"json",
-                    success:function(data){
-						$("#userSidekpi").bootstrapTable("hideLoading");
-                        $("#userSidekpi").bootstrapTable("load",data);
-                    }
-                });
-                $.ajax({
-                    url:"commonController/getNpmListRrdData.do",
-                    type:"post",
-                    data:{
-                        "moduleId":12,
-                        "watchPointId":row.id,
-                        "starttime":1505892630,
-                        "endtime":1505960881
-                    },
-                    dataType:"json",
-                    success:function(data){
-						$("#serverSidekpi").bootstrapTable("hideLoading");
-                        $("#serverSidekpi").bootstrapTable("load",data);
-                    }
-                })
-            },
-            modulkpi:function(userColumnurl,toolbartem,modolkpiurl,tableId,watchPointId,moduleId,starttime,endtime){
-                $.ajax({
-                    url:userColumnurl,
-                    type:"post",
-                    data:"",
-                    dataType:"json",
-                    success:function(data){
-                        var columnsArry = [];
-                        data.forEach(function(title){
-                            if(title.columnen!="id"){
-                                var colObjet = {
-                                    field:title.columnen,
-                                    title:title.columnzh+"<span data-columnId='"+title.id+"'></span>",
-                                    sortable:true,
-                                    visible:title.checked
-                                };
-                                columnsArry.push(colObjet);
-                            }
-                        });
-                        $(tableId).bootstrapTable({
-                            url:modolkpiurl,
-                            queryParams:function(params){
-                                return {
-                                    "moduleId":moduleId,
-                                    "watchPointId":watchPointId,
-                                    "starttime":starttime,
-                                    "endtime":endtime
-                                }
-                            },
-                            toggle:"table",
-                            toolbar:toolbartem,
-                            pagination:true,
-                            showColumns:true,
-                            columns:columnsArry,
-                            onClickRow:function(row,element){
-                            	if(tableId=="#table7"){
-									obPointkpi.clickTableRow(row,element);
-                            		selectDataId = row.id;
-                            		load();
-                                }
-                            }
-                        });
-                    }
-                });
-            },
-            clickColumn:function(thisElm){
-				thisElm.siblings(".dropdown-menu").find("input[type='checkbox']").on("click",function(){
-					if($(this).attr("checked")){
-						$(this).attr("checked",false);
-						$.ajax({
-							url:"userConfigure/unCheckedUserListColumn.do",
-							type:"post",
-							data:{
-								columnId:$(this).siblings("span").attr("data-columnId")
-							},
-							dataType:"text",
-							success:function(data){
-							}
-						})
-					}else {
-						$(this).attr("checked",true);
-						$.ajax({
-							url:"userConfigure/checkedUserListColumn.do",
-							type:"post",
-							data:{
-								columnId:$(this).siblings("span").attr("data-columnId")
-							},
-							dataType:"text",
-							success:function(data){
-							}
-						})
-					}
-				});
-            }
-        };
-		/*-------用户刚刚进入此页面时触发的事件------------------*/
-		obPointkpi.modulkpi("/watchpointController/getWatchpointUserListColumn.do",
-				"#guanchapoint",
-				"/commonController/getNpmListRrdData.do",
-				"#table7",
-				null,
-				10);//观察点
-
-		obPointkpi.modulkpi("/client/getClientUserListColumn.do",
-				"#userduan",
-				"/commonController/getNpmListRrdData.do",
-				"#userSidekpi",
-				selectDataId,
-				11,
-				1505892630,
-				1505960881,
-				1
-		);//用户端
-		obPointkpi.modulkpi("/serverManagement/getServerSideUserListColumn.do",
-				"#serverduan",
-				"/commonController/getNpmListRrdData.do",
-				"#serverSidekpi",
-				selectDataId,
-				12,
-				1505892630,
-				1505960881,
-				1
-		);//服务端
-		setTimeout(function(){
-			if(selectRow>9){
-				$("#table7").bootstrapTable('selectPage', Math.ceil((selectRow-0+1)/10));
-				$("#table7 tbody tr").each(function(index,element){
-					if($(element).attr("data-index")==selectRow){
-						$(element).addClass("tabRowClickbg");
-					}
-				})
-			}else {
-				$("#table7 tbody tr").eq(selectRow).addClass("tabRowClickbg");
-			}
-		},600);
-
-
-        /*-------------用户操作列的消失隐藏--------------------------*/
-		$(document).one('click','button[data-toggle="dropdown"]',function(){
-			if($(this).attr("aria-label")=="columns"){
-				var idWord = $(this).parents(".columns").prev(".bs-bars").children("div").attr("id"),
-						thisElm = $(this);
-				switch (idWord){
-					case "guanchapoint":
-						obPointkpi.clickColumn(thisElm);
-						break;
-					case "userduan":
-						obPointkpi.clickColumn(thisElm);
-						break;
-					case "serverduan":
-						obPointkpi.clickColumn(thisElm);
-						break;
-				}
-			}
-		});
-        var kpiName = [];
-        var kpiNames = [];
-        function load(){
-        	$.ajax({
-    				 url:"/viewConfig/getModuleConfig.do",
-    				 type:"post",
-    				 dataType:"json",
-    				 data:{moduleId:10,busiId:selectDataId},
-    				 success:function(data){
-    				    $(".pointline").empty();
-    					var plotId=null,plotTypeId=null,url=null,watchpointId=null;
-    					var html = '';
-    			    	for(var i= 0;i<data.graph.length;i++){
-    			    		   kpiName.push(data.graph[i].plotId);
-    			    			html = '<div class="draw" style="margin: 10px;width: 48%;float: left;">'
-    				    		    +'<div class="title">'
-    				    		    +'<h2 class="tile-title">图形</h2>'
-    				    		    +'<div class="tile-config dropdown">'
-    				    		    +'<a data-toggle="dropdown" class="tile-menu"></a>'
-    				    		    +'<ul class="dropdown-menu pull-right text-right">'
-    				    		    +'<li><a href="">Refresh</a></li>'
-    				    		    +'<li><a href="#" style="cursor:pointer;" data-toggle="modal" data-target="#addNew-event">日期选择</a></li>'
-    				    		    +'<li><a href="">Settings</a></li></ul>'
-    				    		    +'</div>'
-    				    		    +'</div>'
-    				    		    +'<div class="linedraw">'
-    				    			+'<div id=lineid'+i+' style="width:100%;height:30em;"></div>'
-    				    			+'</div>'
-    				    			+'</div>';
-    				    		$(".pointline").append(html);
-    				    		plotId=data.graph[i].plotId;
-    				            plotTypeId=data.graph[i].plotTypeId;
-    				    	    url=data.graph[i].urlPath;
-    				    	    watchpointId=data.graph[i].watchpointId;
-      				    	$.drawChart('lineid'+i+'',url,{
-    								 "watchpointId":watchpointId,
-    								 "plotId":plotId,
-    								 "plotTypeId":plotTypeId
-    							 }, {
-    								 dataZoom: true
-    							 });
-    			    	}
-    				 }
-    			 });
-        } 
-        load();
-        	   var str=null;
-        	   var str1=null;
-        	   var trs =null;
-        	   function cli(){
-        		   var tables =  '<table class="table">'+
-				      '<thead style="background: rgb(255,255,255);display:block;border-bottom:1px solid #c0c0c0;"><tr>'+
-				      '<th>Kpi名称</th>'+
-				      '<th>图形</th>'+
-				      '<th>数据</th>'+
-				      '</tr></thead>'+
-				      '<tbody id="table-list"  style="display:block;max-height:260px;overflow-y: scroll;"></tbody>'+
-				      '</table>';
-				     $(".list-content").append(tables);
-				     var _width=$('#listDraw').width();
-				     $('.list-content th:first-child').width(_width*0.7); 
-				     $('.list-content th:nth-child(2)').width(_width*0.2);  
-				     $('.list-content th:nth-child(3)').width(_width*0.2);
-        			$("#list-draw").off("click").on("click",function(){
-        				$.ajax({
-        					 url:"/plot/getPlotByModuleId.do",
-        					 type:"post",
-        					 data:{ moduleId:10,},
-        					 dataType:"json",
-        					 success:function(data){
-        						 $("#table-list").empty();
-        						 for(var i=0; i<data.length; i++){
-        								 if(data[i].graph==true ){
-            								 str='<td><input id="test" name="test"  value="'+data[i].id+':'+ data[i].types[0].id +'" type="checkbox" style="opacity: 1;"></td>';
-            								 $('.list-content td:nth-child(2)').width(_width*0.2);
-            							 }else {
-            								 str='<td></td>';
-            							 }
-            							 if(data[i].number==true){
-            								 str1='<td><input type="checkbox" style="opacity: 1;"></td>';
-            								 $('.list-content td:nth-child(3)').width(_width*0.2);
-            							 }else{
-            								 str1='<td></td>';
-            							 }
-            							  if(kpiNames==""){
-            								 for(var j= 0;j<kpiName.length;j++){
-                								 if(data[i].id ==kpiName[j]){
-                									 str='<td><input  name="test"  value="'+data[i].id+':'+ data[i].types[0].id +'" type="checkbox" checked=checked style="opacity: 1;"></td>';
-                    								 $('.list-content td:nth-child(2)').width(_width*0.2); 
-                								 }
-                								 
-                							 }
-            							 }else{
-            								 for(var k= 0;k<kpiNames.length;k++){
-                								 if(data[i].id ==kpiNames[k]){
-                									 str='<td><input  name="test"  value="'+data[i].id+':'+ data[i].types[0].id +'" type="checkbox" checked=checked style="opacity: 1;"></td>';
-                    								 $('.list-content td:nth-child(2)').width(_width*0.2); 
-                								 }
-                								 
-                							 }
-            							 } 
-            							 
-            							  trs = $('<tr>'+  
-            							            '<td>'+ data[i].name +'</td>'+str+ str1 +
-            							            '</tr>'); 
-            							     $('.list-content td:first-child').width(_width*0.7); 
-            								 $("#table-list").append(trs);
-            							 }
-        					 }
-        				});
-        			});
-        		}
-        		 cli();
-        		 $("#list-save").click(function(){
-        			 $(".pointline").empty();
-        			 var listvalue=[];
-        			 var listgragh =[]; 
-        			 var plotId = null;
-        			 var plotTypeId = null;
-        			 var urls = null;
-        			 var html = null;
-        			 serie = [];
-        			 $('input[name="test"]:checked').each(function(){ 
-        				  listgragh.push($(this).val()); 
-        				  }); 
-        				  if(listgragh.length==0){
-        					  alert("你还没有选择任何内容！");
-        				  }else {
-        					  var datas="{\"graph\":[";
-        					  for(var j=0; j<listgragh.length;j++){
-        						   listvalue=listgragh[j].split(":");
-        						   plotId=listvalue[0];
-        						   kpiNames.push(plotId);
-        						   plotTypeId=listvalue[1];
-        						   urls= "/watchpointController/getWatchpointGraphical.do";
-        						   datas += '{';  
-        						   datas+='"ipmCenterId":"'+ 0 +'",';
-        						   datas+='"urlPath":"'+ urls +'",';
-        						   datas+='"watchpointId":"'+ selectDataId +'",';
-        						   datas+='"plotId":"'+ plotId +'",';
-        						   datas+='"plotTypeId":"'+ plotTypeId +'"';
-        						   datas += '}';
-        						   datas += ',';
-        						   html = '<div class="draw" style="margin: 10px;width: 48%;float: left;">'
-       				    		    +'<div class="title">'
-       				    		    +'<h2 class="tile-title">图形</h2>'
-       				    		    +'<div class="tile-config dropdown">'
-       				    		    +'<a data-toggle="dropdown" class="tile-menu"></a>'
-       				    		    +'<ul class="dropdown-menu pull-right text-right">'
-       				    		    +'<li><a href="">Refresh</a></li>'
-       				    		    +'<li><a href="#" style="cursor:pointer;" data-toggle="modal" data-target="#addNew-event">日期选择</a></li>'
-       				    		    +'<li><a href="">Settings</a></li></ul>'
-       				    		    +'</div>'
-       				    		    +'</div>'
-       				    		    +'<div class="linedraw">'
-       				    			+'<div id=abc'+j+' style="width:100%;height:30em;"></div>'
-       				    			+'</div>'
-       				    			+'</div>';
-       				    		    $(".pointline").append(html);
-            				        $.drawChart('abc'+j,urls,{
-            								 "watchpointId":selectDataId,
-            								 "plotId":plotId,
-            								 "plotTypeId":plotTypeId
-            							 },{
-            								 dataZoom: true
-            							 }); 
-        				       }
-        					  datas+="]}";
-        					  var json = datas.substring(0, datas.length - 3) +"]}";
-        					  $.ajax({
-        						  url:"/viewConfig/updModuleConfig.do",
-        		    			  type:"post",
-        		    			  dataType:"json",
-        		    			  data:{moduleId:10,busiId:selectDataId,content:json},
-        		    			  success:function(data){
-        		    				 /*  if(data.stauts==true){
-        		    					  window.location.reload();
-        		    				  } */
-        		    			  }
-        					  });
-        			 }
-        			$("#listDraw").modal("hide");
-        		 }); 
-    });
-    
-    ~function (){
-        var start = {
-            format: 'YYYY-MM-DD hh:mm:ss',
-            maxDate: $.nowDate({DD:0}), //最大日期
-            choosefun: function(elem, val, date){
-                end.minDate = date; //开始日选好后，重置结束日的最小日期
-                endDates();
-            }
-        };
-        var end = {
-            format: 'YYYY-MM-DD hh:mm:ss',
-            maxDate:$.nowDate({DD:0}), //最大日期
-            choosefun: function(elem, val, date){
-                start.maxDate = date; //将结束日的初始值设定为开始日的最大日期
-            }
-        };
-        //这里是日期联动的关键
-        function endDates() {
-            //将结束日期的事件改成 false 即可
-            end.trigger = false;
-            $("#modalEndtime").jeDate(end);
-        }
-        $('#modalStarTime').jeDate(start);
-        $('#modalEndtime').jeDate(end);
-        $("#subTimemodal").click(function(){
-            console.log($("#historyTime").val());
-            console.log($("#lineTimejg").val());
-            console.log($("#modalStarTime").val());
-            console.log($("#modalEndtime").val());
-        });
-    }();
-</script>
 </body>
 </html>
+<!-- jQuery -->
+<script src="js/jQuery/jquery.min.js"></script>
+<!-- jQuery Library -->
+<!-- Bootstrap -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<!-- Bootstrap-table -->
+<script src="js/bootstrap/bootstrap-table.js"></script>
+<script src="js/bootstrap/bootstrap-table-zh-CN.js"></script>
+<script src="js/bootstrap/bootstrap-table-export.js"></script>
+<script src="js/bootstrap/tableExport.js"></script>
+<script src="js/functions.js"></script>
+<script src="customjs/changeBackground.js"></script>
+<script src="customjs/sidebar.js"></script>
+<!--<script src="js/jQuery/jquery.jedate.js"></script>-->
+<script src="js/echarts/echarts.min.js"></script>
+<script src="js/echarts/theme/macarons.js"></script>
+<script src="customjs/echartUtil/data.format.js"></script>
+<script src="customjs/echartUtil/echart.util.js"></script>
+<script src="customjs/draw.js"></script>
+<script src="customjs/bsTable/kpitable.js"></script>
+<script>
+	$(function(){
+		var selectRow = window.location.href.split("?")[1].split("&")[0].split("=")[1]-0,
+			selectDataId = window.location.href.split("?")[1].split("&")[1].split("=")[1]-0;
 
+
+		function temp2(){
+			var obPointkpi = {
+				clickTableRow:function(row,element){
+					$(".tabRowClickbg").removeClass("tabRowClickbg");
+					$(element).addClass("tabRowClickbg");
+					$("#userSidekpi").bootstrapTable("showLoading");
+					$("#serverSidekpi").bootstrapTable("showLoading");
+					$(".fixed-table-loading").css("line-height",$(".fixed-table-loading").height()+"px");
+					$.ajax({
+						url:"commonController/getNpmListRrdData.do",
+						type:"post",
+						data:{
+							"moduleId":11,
+							"watchPointId":row.id,
+							"starttime":1505892630,
+							"endtime":1505960881
+						},
+						dataType:"json",
+						success:function(data){
+							$("#userSidekpi").bootstrapTable("hideLoading");
+							$("#userSidekpi").bootstrapTable("load",data);
+						}
+					});
+					$.ajax({
+						url:"commonController/getNpmListRrdData.do",
+						type:"post",
+						data:{
+							"moduleId":12,
+							"watchPointId":row.id,
+							"starttime":1505892630,
+							"endtime":1505960881
+						},
+						dataType:"json",
+						success:function(data){
+							$("#serverSidekpi").bootstrapTable("hideLoading");
+							$("#serverSidekpi").bootstrapTable("load",data);
+						}
+					})
+				},
+				modulkpi:function(userColumnurl,modolkpiurl,tableId,ajaxData){
+					$.ajax({
+						url:userColumnurl,
+						type:"post",
+						data:"",
+						dataType:"json",
+						success:function(data){
+							var columnsArry = [];
+							data.forEach(function(title){
+								if(title.columnen!="id"){
+									var colObjet = {
+										field:title.columnen,
+										title:title.columnzh+"<span data-columnId='"+title.id+"'></span>",
+										sortable:true,
+										visible:title.checked
+									};
+									columnsArry.push(colObjet);
+								}
+							});
+							$(tableId).bootstrapTable({
+								url:modolkpiurl,
+								queryParams:function(params){
+									return ajaxData;
+								},
+								toggle:"table",
+								pagination:true,
+								showColumns:true,
+								showExport:true,
+								search:true,
+								columns:columnsArry,
+								onClickRow:function(row,element){
+									if(tableId=="#table7"){
+										obPointkpi.clickTableRow(row,element);
+										selectDataId = row.id;
+										_chart._createChart(10,selectDataId);
+									}
+								},
+								onColumnSwitch:function(field, checked	){
+									$.ajax({
+										url:userColumnurl,
+										type:"post",
+										data:"",
+										dataType:"json",
+										success:function(culumnData){
+											culumnData.forEach(function(item,index){
+												if(item.columnen==field){
+													$.ajax({
+														url:checked?"userConfigure/checkedUserListColumn.do":
+																"userConfigure/unCheckedUserListColumn.do",
+														type:"post",
+														data:{columnId:item.id},
+														dataType:"text",
+														success:function(data){
+														}
+													})
+												}
+											})
+										}
+									})
+								},
+								rowStyle:function(row,index){
+									if(index==selectRow){
+										if(tableId=="#table7"){
+											return {classes:"tabRowClickbg"}
+										}
+									}
+									return "";
+								},
+								onLoadSuccess:function(data){
+									if(selectRow>9){
+										$("#table7").bootstrapTable('selectPage', Math.ceil((selectRow+1)/10));
+									}
+								}
+							});
+						}
+					});
+				}
+			};
+		}
+
+
+
+		/*-------用户刚刚进入此页面时触发的事件------------------*/
+//		,watchPointId,moduleId,starttime,endtime
+
+			obPointkpi.modulkpi("/watchpointController/getWatchpointUserListColumn.do",
+				"/commonController/getNpmListRrdData.do",
+				"#table7",
+					{
+						"moduleId":10,
+						"watchPointId":selectDataId,
+						"starttime":1505892630,
+						"endtime":1505960881
+					},selectRow,selectDataId,1,selectRow);//观察点
+		obPointkpi.modulkpi("/client/getClientUserListColumn.do",
+				"/commonController/getNpmListRrdData.do",
+				"#userSidekpi",
+				{
+					"moduleId":11,
+					"watchPointId":selectDataId,
+					"starttime":1505892630,
+					"endtime":1505960881
+				},selectRow,selectDataId);//用户端
+		obPointkpi.modulkpi("/serverManagement/getServerSideUserListColumn.do",
+				"/commonController/getNpmListRrdData.do",
+				"#serverSidekpi",
+				{
+					"moduleId":12,
+					"watchPointId":selectDataId,
+					"starttime":1505892630,
+					"endtime":1505960881
+				},selectRow,selectDataId);//服务端
+
+
+
+
+		function temp(){
+			$.ajax({
+				url:"/serverManagement/getServerSideUserListColumn.do",
+				type:"post",
+				data:"",
+				dataType:"json",
+				success:function(data){
+					var columnsArry = [];
+					data.forEach(function(title){
+						if(title.columnen!="id"){
+							var colObjet = {
+								field:title.columnen,
+								title:title.columnzh+"<span data-columnId='"+title.id+"'></span>",
+								sortable:true,
+								visible:title.checked
+							};
+							columnsArry.push(colObjet);
+						}
+					});
+//				console.log(columnsArry);
+					$("#serverSidekpi").bootstrapTable({
+						url:"/commonController/getNpmListRrdData.do",
+						queryParams:function(params){
+							return {
+								"moduleId":12,
+								"watchPointId":selectDataId,
+								"starttime":1505892630,
+								"endtime":1505960881
+							}
+						},
+						toggle:"table",
+						pagination:true,
+						showColumns:true,
+						showExport:true,
+						search:true,
+						columns:columnsArry,
+						/*onClickRow:function(row,element){
+						 if(tableId=="#table7"){
+						 obPointkpi.clickTableRow(row,element);
+						 selectDataId = row.id;
+						 _chart._createChart(10,selectDataId);
+						 }
+						 },
+						 onColumnSwitch:function(field, checked	){
+						 $.ajax({
+						 url:"/serverManagement/getServerSideUserListColumn.do",
+						 type:"post",
+						 data:"",
+						 dataType:"json",
+						 success:function(culumnData){
+						 culumnData.forEach(function(item,index){
+						 if(item.columnen==field){
+						 $.ajax({
+						 url:checked?"userConfigure/checkedUserListColumn.do":
+						 "userConfigure/unCheckedUserListColumn.do",
+						 type:"post",
+						 data:{columnId:item.id},
+						 dataType:"text",
+						 success:function(data){
+						 }
+						 })
+						 }
+						 })
+						 }
+						 })
+						 }*//*,
+						 rowStyle:function(row,index){
+						 if(index==selectRow){
+						 if("#serverSidekpi"=="#table7"){
+						 return {classes:"tabRowClickbg"}
+						 }
+						 }
+						 return "";
+						 },
+						 onLoadSuccess:function(data){
+						 if(selectRow>9){
+						 $("#table7").bootstrapTable('selectPage', Math.ceil((selectRow+1)/10));
+						 }
+						 }*/
+					});
+				}
+			});
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		_chart._createChart(10,selectDataId);
+		$("#list-draw").off("click").on("click",function(){
+			_chart._kpiSelectM(10);
+		});
+		$("#list-save").click(function(){
+			_chart._saveJson(10,selectDataId);
+		});
+		$(window).resize(function(){
+			_chart._resizChart();
+		});
+	});
+</script>
 
